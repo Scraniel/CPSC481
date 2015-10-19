@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RadBox_start.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace RadBox_start
         public PicturesPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.LandingPage(); 
         }
     }
 }

@@ -8,7 +8,7 @@
 	Title="PicturesPage">
 
     <Grid>
-        <TextBlock Text="PICTURES PAGE!" FontSize="50" Foreground="Red"/>
+        <Button Content="PICTURES PAGE!" FontSize="50" Foreground="Red" Click="Button_Click"/>
     </Grid>
 </Page>
 
