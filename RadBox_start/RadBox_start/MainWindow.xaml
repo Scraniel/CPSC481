@@ -10,21 +10,42 @@
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="18*"/>
-            <ColumnDefinition Width="143*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="_shows_label" Content="Movies / Shows" HorizontalAlignment="Left" Margin="140,372,0,0" VerticalAlignment="Top" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" Width="203" FontWeight="Bold" Grid.Column="1" FontSize="24"/>
-        <Image x:Name="_shows_thumb"  HorizontalAlignment="Left" Height="159" Margin="140,164,0,0" VerticalAlignment="Top" Width="180" Source="Assets/Images/StartPage/apple.png" Grid.Column="1"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="7*"/>
+            <RowDefinition Height ="2*"/>
+            <RowDefinition Height ="*"/>
+        </Grid.RowDefinitions>
 
-        <Label x:Name="_pictures_label" Content="Pictures" HorizontalAlignment="Left" Margin="529,372,0,0" VerticalAlignment="Top" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="118" Grid.Column="1" FontSize="24"/>
-        <Image x:Name="_pictures_thumb" HorizontalAlignment="Left" Height="159" Margin="498,164,0,0" VerticalAlignment="Top" Width="180" Source="Assets/Images/StartPage/orange.png" Grid.Column="1"/>
-
-        <Button x:Name="_power_button" Grid.Column="1" HorizontalAlignment="Left" Margin="384,453,0,0" VerticalAlignment="Top" Width="91" Height="90">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image x:Name="_power_button_pic" Source="Assets/Images/StartPage/powerButton.png" RenderTransformOrigin="0.5,0.5"/>
-                </ControlTemplate>
-            </Button.Template>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Movies / Shows Button -->
+            <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                <Button x:Name="moviesAndShows" Width="160" Height="160">
+                    <Image x:Name="moviesAndShowsImage" Source="Assets/Images/StartPage/apple.png"/>
+                </Button>
+                <Label x:Name="moviesAndShowsLabel" HorizontalContentAlignment="Center" Content="Movies and Shows" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="250" FontSize="24"/>
+            </StackPanel>
+        
+            <!-- Pictures Button -->
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Button x:Name="picturesButton" Width="160" Height="160">
+                    <Image x:Name="picturesImage" Source="Assets/Images/StartPage/orange.png"/>
+                </Button>
+                <Label x:Name="picturesLabel" HorizontalContentAlignment="Center" Content="Pictures" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="160" FontSize="24"/>
+            </StackPanel>
+        </Grid>
+        
+        <!-- Power button -->
+        <Button x:Name="powerButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="91" Height="90">
+            <Image x:Name="powerButtonImage" Source="Assets/Images/StartPage/powerButton.png"/>
         </Button>
     </Grid>
 </Window>
