@@ -120,6 +120,16 @@
     <Resource Include="Assets\Images\StartPage\orange.png" />
     <Resource Include="Assets\Images\StartPage\powerButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\PlayFiller.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\videoFiller.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\thumbnailFiller.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\ArrowFiller.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
