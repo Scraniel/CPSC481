@@ -1,7 +1,8 @@
 ﻿<Window x:Class="RadBox_start.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="RadBox" Height="635.915" Width="1028.698" FontFamily="Kristen ITC">
+        Title="RadBox" Height="635.915" Width="1028.698" FontFamily="Kristen ITC"
+        xmlns:local="clr-namespace:System.Windows.Controls;assembly=PresentationFramework">
     <Window.Background>
         <RadialGradientBrush>
             <GradientStop Color="#FF464664"/>
@@ -9,43 +10,6 @@
         </RadialGradientBrush>
     </Window.Background>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height ="7*"/>
-            <RowDefinition Height ="2*"/>
-            <RowDefinition Height ="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Column="1" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            
-            <!-- Movies / Shows Button -->
-            <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <Button x:Name="moviesAndShows" Width="160" Height="160">
-                    <Image x:Name="moviesAndShowsImage" Source="Assets/Images/StartPage/apple.png"/>
-                </Button>
-                <Label x:Name="moviesAndShowsLabel" HorizontalContentAlignment="Center" Content="Movies and Shows" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="250" FontSize="24"/>
-            </StackPanel>
-        
-            <!-- Pictures Button -->
-            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <Button x:Name="picturesButton" Width="160" Height="160">
-                    <Image x:Name="picturesImage" Source="Assets/Images/StartPage/orange.png"/>
-                </Button>
-                <Label x:Name="picturesLabel" HorizontalContentAlignment="Center" Content="Pictures" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="160" FontSize="24"/>
-            </StackPanel>
-        </Grid>
-        
-        <!-- Power button -->
-        <Button x:Name="powerButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="91" Height="90">
-            <Image x:Name="powerButtonImage" Source="Assets/Images/StartPage/powerButton.png"/>
-        </Button>
+        <local:Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

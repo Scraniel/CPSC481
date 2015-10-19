@@ -12,23 +12,34 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using RadBox_start.Helpers;
 
 namespace RadBox_start
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LandingPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LandingPage : Page
     {
-        // Should probably move these into a model or something
-
-        public MainWindow()
+        public LandingPage()
         {
             InitializeComponent();
-            Navigator.MainWindowFrame = MainFrame;
+        }
 
-            Navigator.LandingPage();
+        private void powerButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void picturesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.PicturesPage();
+        }
+
+        private void moviesAndShows_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.MoviesAndShowsPage();
         }
     }
 }

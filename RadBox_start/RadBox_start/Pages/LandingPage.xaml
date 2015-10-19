@@ -1,0 +1,50 @@
+﻿<Page x:Class="RadBox_start.LandingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      
+	Title="LandingPage" d:DesignWidth="1028" d:DesignHeight="635">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="7*"/>
+            <RowDefinition Height ="2*"/>
+            <RowDefinition Height ="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Movies / Shows Button -->
+            <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                <Button x:Name="moviesAndShows" Width="160" Height="160" Click="moviesAndShows_Click">
+                    <Image x:Name="moviesAndShowsImage" Source="../Assets/Images/StartPage/apple.png"/>
+                </Button>
+                <Label x:Name="moviesAndShowsLabel" HorizontalContentAlignment="Center" Content="Movies and Shows" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="250" FontSize="24"/>
+            </StackPanel>
+
+            <!-- Pictures Button -->
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Button x:Name="picturesButton" Width="160" Height="160" Click="picturesButton_Click">
+                    <Image x:Name="picturesImage" Source="../Assets/Images/StartPage/orange.png"/>
+                </Button>
+                <Label x:Name="picturesLabel" HorizontalContentAlignment="Center" Content="Pictures" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="160" FontSize="24"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Power button -->
+        <Button x:Name="powerButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="91" Height="90" Click="powerButton_Click">
+            <Image x:Name="powerButtonImage" Source="../Assets/Images/StartPage/powerButton.png"/>
+        </Button>
+    </Grid>
+</Page>
