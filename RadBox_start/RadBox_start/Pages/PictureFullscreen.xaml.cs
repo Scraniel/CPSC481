@@ -1,5 +1,4 @@
 ﻿using RadBox_start.Helpers;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,23 +16,17 @@ using System.Windows.Shapes;
 namespace RadBox_start
 {
     /// <summary>
-    /// Interaction logic for PicturesPage.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class PicturesPage : Page
+    public partial class PictureFullscreen : Page
     {
-        public PicturesPage()
+        public PictureFullscreen()
         {
             InitializeComponent();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Navigator.LandingPage(); 
-        }
-
-        private void photoPlay(object sender, RoutedEventArgs e)
-        {
-            Navigator.PictureFullScreen();
         }
     }
 }

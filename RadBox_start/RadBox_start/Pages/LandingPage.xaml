@@ -28,7 +28,7 @@
             <!-- Movies / Shows Button -->
             <StackPanel Grid.Column="0" VerticalAlignment="Center">
                 <Button x:Name="moviesAndShows" Width="160" Height="160" Click="moviesAndShows_Click">
-                    <Image x:Name="moviesAndShowsImage" Source="../Assets/Images/StartPage/apple.png"/>
+                    <Image x:Name="moviesAndShowsImage" Source="/RadBox_start;component/Assets/Images/StartPage/movies_shows.png"/>
                 </Button>
                 <Label x:Name="moviesAndShowsLabel" HorizontalContentAlignment="Center" Content="Movies and Shows" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="250" FontSize="24"/>
             </StackPanel>
@@ -36,7 +36,7 @@
             <!-- Pictures Button -->
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
                 <Button x:Name="picturesButton" Width="160" Height="160" Click="picturesButton_Click">
-                    <Image x:Name="picturesImage" Source="../Assets/Images/StartPage/orange.png"/>
+                    <Image x:Name="picturesImage" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/photos_filler.png"/>
                 </Button>
                 <Label x:Name="picturesLabel" HorizontalContentAlignment="Center" Content="Pictures" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="160" FontSize="24"/>
             </StackPanel>

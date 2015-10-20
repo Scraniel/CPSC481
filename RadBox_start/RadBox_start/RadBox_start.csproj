@@ -77,6 +77,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PictureFullscreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PicturesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +89,9 @@
   <ItemGroup>
     <Compile Include="Pages\MoviesAndShowsPage.xaml.cs">
       <DependentUpon>MoviesAndShowsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PictureFullscreen.xaml.cs">
+      <DependentUpon>PictureFullscreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PicturesPage.xaml.cs">
       <DependentUpon>PicturesPage.xaml</DependentUpon>
@@ -129,6 +136,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\MoviesAndShows\ArrowFiller.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\photos_filler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\StartPage\movies_shows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\slideshow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

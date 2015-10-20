@@ -36,7 +36,7 @@
         
         <!-- Preview for currently selected-->
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
-            <TextBlock Text="Sunny Day" FontSize="50" Foreground="Red" HorizontalAlignment="Center"/>
+            <TextBlock Text="WALL-E" FontSize="50" Foreground="Red" HorizontalAlignment="Center"/>
             <Image Grid.Column="1" Grid.Row="1" Source="../Assets/Images/MoviesAndShows/videoFiller.png" Height="351" Margin="10,0"/>
         </StackPanel>
         <!-- Seen / Not seen buttons-->
