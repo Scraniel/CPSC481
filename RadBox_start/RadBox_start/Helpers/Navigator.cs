@@ -14,6 +14,7 @@ namespace RadBox_start.Helpers
         private static MoviesAndShowsPage moviesAndShowsPage = new MoviesAndShowsPage();
         private static PicturesPage picturesPage = new PicturesPage();
         private static PictureFullscreen picFullScreen = new PictureFullscreen();
+        private static MoviesAndShowsPage moviesAndShowsFullscreen = new MoviesAndShowsPage();
 
         private static void Navigate(Page navigateTo)
         {
@@ -38,6 +39,11 @@ namespace RadBox_start.Helpers
         public static void PictureFullScreen()
         {
             Navigate(picFullScreen);
+        }
+
+        public static void MoviesAndShowsFullscreen()
+        {
+            Navigate(moviesAndShowsFullscreen);
         }
     }
 }

@@ -5,8 +5,8 @@
         xmlns:local="clr-namespace:System.Windows.Controls;assembly=PresentationFramework">
     <Window.Background>
         <RadialGradientBrush>
-            <GradientStop Color="#FF464664"/>
-            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="LightBlue"/>
+            <GradientStop Color="RoyalBlue" Offset="1.5"/>
         </RadialGradientBrush>
     </Window.Background>
     <Grid>

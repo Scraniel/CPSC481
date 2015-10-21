@@ -22,7 +22,7 @@
         <!-- Back button -->
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="1">
             <Button Width="50" Click="Button_Click">
-                <Image Grid.Column="0" Grid.Row="2" Source="../Assets/Images/MoviesAndShows/arrowFiller.png" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/arrowFiller.png" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image.LayoutTransform>
                         <RotateTransform CenterX="0.5" CenterY="0.5" Angle="180"/>
                     </Image.LayoutTransform>
@@ -37,7 +37,7 @@
         <!-- Preview for currently selected-->
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
             <TextBlock Text="WALL-E" FontSize="50" Foreground="Red" HorizontalAlignment="Center"/>
-            <Image Grid.Column="1" Grid.Row="1" Source="../Assets/Images/MoviesAndShows/videoFiller.png" Height="351" Margin="10,0"/>
+            <Image Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/videoFiller.png" Height="351" Margin="10,0"/>
         </StackPanel>
         <!-- Seen / Not seen buttons-->
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
@@ -46,7 +46,7 @@
         </StackPanel>
 
         <!-- Play button -->
-        <Image Grid.Column="2" Grid.Row="1" Source="../Assets/Images/MoviesAndShows/playFiller.png"/>
+        <Image Grid.Column="2" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/playFiller.png"/>
 
         <!-- Thumbnails of other videos -->
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
@@ -55,19 +55,19 @@
                     <Setter Property="Margin" Value="10" />
                 </Style>
             </StackPanel.Resources>
-            <Image Source="../Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
-            <Image Source="../Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
-            <Image Source="../Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
+            <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
+            <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
+            <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
         </StackPanel>
         
         <!-- Right and left navigational arrows for thumbnails -->
-        <Image Grid.Column="0" Grid.Row="2" Source="../Assets/Images/MoviesAndShows/arrowFiller.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/arrowFiller.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image.LayoutTransform>
                 <RotateTransform CenterX="0.5" CenterY="0.5" Angle="180"/>
             </Image.LayoutTransform>
         </Image>
 
-        <Image Grid.Column="2" Grid.Row="2" Source="../Assets/Images/MoviesAndShows/arrowFiller.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image Grid.Column="2" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/arrowFiller.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             
     </Grid>
 </Page>

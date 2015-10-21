@@ -44,7 +44,7 @@
 
         <!-- Power button -->
         <Button x:Name="powerButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="91" Height="90" Click="powerButton_Click">
-            <Image x:Name="powerButtonImage" Source="../Assets/Images/StartPage/powerButton.png"/>
+            <Image x:Name="powerButtonImage" Source="/RadBox_start;component/Assets/Images/StartPage/powerButton.png"/>
         </Button>
     </Grid>
 </Page>

@@ -1,4 +1,4 @@
-﻿using RadBox_start.Helpers;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,20 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RadBox_start
+namespace RadBox_start.Pages
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for MoviesAndShowsFullscreen.xaml
     /// </summary>
-    public partial class PictureFullscreen : Page
+    public partial class MoviesAndShowsFullscreen : Page
     {
-        public PictureFullscreen()
+        public MoviesAndShowsFullscreen()
         {
             InitializeComponent();
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Navigator.PicturesPage(); 
         }
     }
 }

@@ -26,6 +26,11 @@ namespace RadBox_start
             InitializeComponent();
         }
 
+        /// <summary>
+        /// This is the 'Click' event handler.
+        /// </summary>
+        /// <param name="sender"> The sender of the event.</param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Navigator.LandingPage(); 
