@@ -30,14 +30,10 @@
 
         <!-- Back button -->
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="1">
-            <Button Width="50" Click="Button_Click">
-                <Image Grid.Column="0" Grid.Row="2" Source="../Assets/Images/MoviesAndShows/arrowFiller.png" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image.LayoutTransform>
-                        <RotateTransform CenterX="0.5" CenterY="0.5" Angle="180"/>
-                    </Image.LayoutTransform>
-                </Image>
+            <Button Width="50" Click="Button_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/homeButton.png" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
-            <TextBlock Text="Back" FontSize="10" Foreground="Red" HorizontalAlignment="Center"/>
+            <TextBlock Text="Back" FontSize="10" Foreground="GreenYellow" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <!-- Search bar -->
@@ -45,19 +41,19 @@
 
         <!-- Preview for currently selected -->
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
-            <TextBlock Text="Pencils" FontSize="50" Foreground="Red" HorizontalAlignment="Center"/>
+            <TextBlock Text="Pencils" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center"/>
             <Button Height="351" Margin="140,0" Click="photoPlay">
-                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/photos_filler.png" Stretch="Fill"/>
+                <Image Source="/RadBox_start;component/Assets/Images/Pictures/photos_filler.png" Stretch="Fill"/>
             </Button>
         </StackPanel>
         <!-- Albums -->
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
-            <ToggleButton x:Name="SeenButton" Content="Albums" Height="200"/>
+            <ToggleButton x:Name="SeenButton" Content="Albums" Height="200" Background="GreenYellow"/>
 
         </StackPanel>
 
-        <!-- Play button -->
-        <Image Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/slideshow.png" Grid.ColumnSpan="2" Margin="666,0,68,0"/>
+        <!-- Slideshow button -->
+        <Image Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/Pictures/slideshow_image.png" Grid.ColumnSpan="2" Margin="666,0,68,0"/>
 
         <!-- Thumbnails of other videos -->
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
@@ -72,13 +68,8 @@
         </StackPanel>
 
         <!-- Right and left navigational arrows for thumbnails -->
-        <Image Grid.Column="0" Grid.Row="2" Source="../Assets/Images/MoviesAndShows/arrowFiller.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image.LayoutTransform>
-                <RotateTransform CenterX="0.5" CenterY="0.5" Angle="180"/>
-            </Image.LayoutTransform>
-        </Image>
-
-        <Image Grid.Column="2" Grid.Row="2" Source="../Assets/Images/MoviesAndShows/arrowFiller.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototypeLeft.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image Grid.Column="2" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototype.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>
 

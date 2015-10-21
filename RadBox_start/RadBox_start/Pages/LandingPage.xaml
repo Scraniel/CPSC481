@@ -27,23 +27,24 @@
 
             <!-- Movies / Shows Button -->
             <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <Button x:Name="moviesAndShows" Width="160" Height="160" Click="moviesAndShows_Click">
+                <Button x:Name="moviesAndShows" Width="160" Height="160" Click="moviesAndShows_Click" Background="Transparent" BorderBrush="Transparent">
                     <Image x:Name="moviesAndShowsImage" Source="/RadBox_start;component/Assets/Images/StartPage/movies_shows.png"/>
                 </Button>
-                <Label x:Name="moviesAndShowsLabel" HorizontalContentAlignment="Center" Content="Movies and Shows" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="250" FontSize="24"/>
+                <Image x:Name="moviesAndShowsLabel" Source="/RadBox_start;component/Assets/Images/StartPage/moviesAndShowsLabel.png" HorizontalAlignment="Left" Width="411"/>
             </StackPanel>
 
             <!-- Pictures Button -->
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <Button x:Name="picturesButton" Width="160" Height="160" Click="picturesButton_Click">
-                    <Image x:Name="picturesImage" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/photos_filler.png"/>
+                <Button x:Name="picturesButton" Width="160" Height="160" Click="picturesButton_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Image x:Name="picturesImage" Source="/RadBox_start;component/Assets/Images/Pictures/photos_filler.png"/>
                 </Button>
-                <Label x:Name="picturesLabel" HorizontalContentAlignment="Center" Content="Pictures" FontFamily="Kristen ITC" Foreground="#FFBBBBD6" FontWeight="Bold" Width="160" FontSize="24"/>
+                <Image x:Name="picturesLabel" Source="/RadBox_start;component/Assets/Images/StartPage/picturesLabel.png" Height="82"/>
+                
             </StackPanel>
         </Grid>
 
         <!-- Power button -->
-        <Button x:Name="powerButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="91" Height="90" Click="powerButton_Click">
+        <Button x:Name="powerButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="91" Height="90" Click="powerButton_Click" Background="Transparent" BorderBrush="Transparent">
             <Image x:Name="powerButtonImage" Source="/RadBox_start;component/Assets/Images/StartPage/powerButton.png"/>
         </Button>
     </Grid>

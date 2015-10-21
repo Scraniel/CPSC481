@@ -145,13 +145,32 @@
     <Resource Include="Assets\Images\MoviesAndShows\ArrowFiller.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\MoviesAndShows\photos_filler.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Images\StartPage\movies_shows.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\MoviesAndShows\slideshow.png" />
+    <Resource Include="Assets\Images\StartPage\greenArrowPrototype.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\StartPage\greenArrowPrototypeLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\StartPage\picturesLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\StartPage\moviesAndShowsLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Pictures\photos_filler.png" />
+    <Resource Include="Assets\Images\Pictures\slideshow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\StartPage\homeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\playButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Pictures\slideshow_image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

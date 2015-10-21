@@ -21,14 +21,10 @@
         
         <!-- Back button -->
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="1">
-            <Button Width="50" Click="Button_Click">
-                <Image Grid.Column="0" Grid.Row="2" Source="../Assets/Images/MoviesAndShows/arrowFiller.png" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image.LayoutTransform>
-                        <RotateTransform CenterX="0.5" CenterY="0.5" Angle="180"/>
-                    </Image.LayoutTransform>
-                </Image>
+            <Button Width="50" Click="Button_Click" Background="Transparent">
+                <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/homeButton.png" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
-            <TextBlock Text="Back" FontSize="10" Foreground="Red" HorizontalAlignment="Center"/>
+            <TextBlock Text="Back" FontSize="10" Foreground="GreenYellow" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Page>
