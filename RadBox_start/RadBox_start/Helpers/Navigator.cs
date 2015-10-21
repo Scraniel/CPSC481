@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
+using RadBox_start.Pages;
+
 namespace RadBox_start.Helpers
 {
     public static class Navigator
@@ -14,7 +16,7 @@ namespace RadBox_start.Helpers
         private static MoviesAndShowsPage moviesAndShowsPage = new MoviesAndShowsPage();
         private static PicturesPage picturesPage = new PicturesPage();
         private static PictureFullscreen picFullScreen = new PictureFullscreen();
-        private static MoviesAndShowsPage moviesAndShowsFullscreen = new MoviesAndShowsPage();
+        private static MoviesAndShowsFullscreen moviesAndShowsFullscreen = new MoviesAndShowsFullscreen();
 
         private static void Navigate(Page navigateTo)
         {

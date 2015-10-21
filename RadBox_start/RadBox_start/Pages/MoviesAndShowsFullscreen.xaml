@@ -4,10 +4,34 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-	Title="MoviesAndShowsFullscreen">
+      d:DesignHeight="635" d:DesignWidth="1028"
+	Title="Fullscreen Movies and Shows">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
         
+        <!-- Back button -->
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="1">
+            <Button Width="50" Click="Button_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/homeButton.png" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+            <TextBlock Text="Back" FontSize="10" Foreground="GreenYellow" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
+        <!-- Movie / TV show in fullscreen -->
+        <Image Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/videoFiller.png"/>
+        
+        
+        <!-- Volume Controls -->
+        <Image Grid.Column="1" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/volumeControlsFiller.png" HorizontalAlignment="Right" VerticalAlignment="Top"/>
     </Grid>
 </Page>

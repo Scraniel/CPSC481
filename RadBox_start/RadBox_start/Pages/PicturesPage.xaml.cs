@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RadBox_start
+namespace RadBox_start.Pages
 {
     /// <summary>
     /// Interaction logic for PicturesPage.xaml

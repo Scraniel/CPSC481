@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RadBox_start
+namespace RadBox_start.Pages
 {
     /// <summary>
     /// Interaction logic for MoviesAndShows.xaml
@@ -34,6 +34,16 @@ namespace RadBox_start
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Navigator.LandingPage(); 
+        }
+
+        private void Screen_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.MoviesAndShowsFullscreen();
+        }
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.MoviesAndShowsFullscreen();
         }
     }
 }

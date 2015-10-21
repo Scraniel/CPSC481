@@ -130,19 +130,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\StartPage\apple.png" />
-    <Resource Include="Assets\Images\StartPage\orange.png" />
     <Resource Include="Assets\Images\StartPage\powerButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\MoviesAndShows\PlayFiller.png" />
     <Resource Include="Assets\Images\MoviesAndShows\videoFiller.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\MoviesAndShows\thumbnailFiller.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Images\MoviesAndShows\ArrowFiller.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\StartPage\movies_shows.png" />
@@ -161,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Pictures\photos_filler.png" />
-    <Resource Include="Assets\Images\Pictures\slideshow.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\StartPage\homeButton.png" />
@@ -171,6 +164,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Pictures\slideshow_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\Fastforward.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\Rewind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\volumeControlsFiller.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

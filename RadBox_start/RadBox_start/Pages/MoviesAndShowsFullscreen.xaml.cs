@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using RadBox_start.Helpers;
+
 namespace RadBox_start.Pages
 {
     /// <summary>
@@ -23,6 +25,11 @@ namespace RadBox_start.Pages
         public MoviesAndShowsFullscreen()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.MoviesAndShowsPage();
         }
     }
 }

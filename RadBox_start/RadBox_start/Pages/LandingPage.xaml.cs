@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 using RadBox_start.Helpers;
 
-namespace RadBox_start
+namespace RadBox_start.Pages
 {
     /// <summary>
     /// Interaction logic for LandingPage.xaml

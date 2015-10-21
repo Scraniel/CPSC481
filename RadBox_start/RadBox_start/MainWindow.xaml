@@ -1,7 +1,7 @@
 ﻿<Window x:Class="RadBox_start.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="RadBox" Height="635.915" Width="1028.698" FontFamily="Kristen ITC"
+        Title="RadBox" Height="635" Width="1028" FontFamily="Kristen ITC"
         xmlns:local="clr-namespace:System.Windows.Controls;assembly=PresentationFramework">
     <Window.Background>
         <RadialGradientBrush>

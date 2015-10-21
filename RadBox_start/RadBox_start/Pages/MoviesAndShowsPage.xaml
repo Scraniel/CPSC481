@@ -1,4 +1,4 @@
-﻿<Page x:Class="RadBox_start.MoviesAndShowsPage"
+﻿<Page x:Class="RadBox_start.Pages.MoviesAndShowsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -31,10 +31,32 @@
         <TextBox x:Name="searchBar" Grid.Column="2" Grid.Row="0" Text="Search" Width="100" Height="20"/>
 
         <!-- Preview for currently selected-->
-        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" >
             <TextBlock Text="WALL-E" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center"/>
-            <Image Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/videoFiller.png" Height="351" Margin="10,0"/>
+            <Button x:Name="ScreenClick" Grid.Column="1" Grid.Row="1"  Height="351" Margin="10,0" Background="Transparent" Click="Screen_Click">
+                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/videoFiller.png" Stretch="Fill"/>
+            </Button>
         </StackPanel>
+
+        <!-- Fastforward and Rewind -->
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="Rewind" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Background="Transparent">
+                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Rewind.png"/>
+            </Button>
+            <Button x:Name="Fastforward" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="Transparent">
+                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Fastforward.png"/>
+            </Button>
+        </Grid>
+
         <!-- Seen / Not seen buttons-->
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
             <ToggleButton x:Name="SeenButton" Content="Seen" Height="100" Background="GreenYellow"/>
@@ -42,8 +64,9 @@
         </StackPanel>
 
         <!-- Play button -->
-        <Image Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/playButton.png" Grid.ColumnSpan="2" Margin="697,0,37,0"/>
-
+        <Button x:Name="PlayButton" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="697,0,37,0" BorderBrush="Transparent" Background="Transparent" Click="PlayButton_Click">
+            <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/playButton.png" />
+        </Button>
         <!-- Thumbnails of other videos -->
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
             <StackPanel.Resources>
