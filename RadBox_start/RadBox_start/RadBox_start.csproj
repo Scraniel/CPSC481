@@ -172,6 +172,16 @@
   <ItemGroup>
     <Resource Include="Assets\Images\MoviesAndShows\volumeControlsFiller.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Pictures\FoldersImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\greyedoutThumbnailFiller.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\MoviesIcon.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\TVIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

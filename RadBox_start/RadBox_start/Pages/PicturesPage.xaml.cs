@@ -35,5 +35,21 @@ namespace RadBox_start.Pages
         {
             Navigator.PictureFullScreen();
         }
+
+        private void FoldersButton_Click(object sender, RoutedEventArgs e)
+        {
+            TranslateTransform translate = new TranslateTransform();
+            translate.X = 230;
+
+            FoldersSelector.RenderTransform = translate;
+        }
+
+        private void FoldersSelector_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TranslateTransform translate = new TranslateTransform();
+            translate.X = -230;
+
+            FoldersSelector.RenderTransform = translate;
+        }
     }
 }
