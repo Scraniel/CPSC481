@@ -51,5 +51,10 @@ namespace RadBox_start.Pages
 
             FoldersSelector.RenderTransform = translate;
         }
+
+        private void HomeButton_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

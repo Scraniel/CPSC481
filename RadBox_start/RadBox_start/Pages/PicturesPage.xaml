@@ -2,7 +2,8 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:my="clr-namespace:RadBox_start.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="635" d:DesignWidth="1028"
 	Title="PicturesPage">
@@ -29,15 +30,10 @@
         </Grid.RowDefinitions>
 
         <!-- Back button -->
-        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
-            <Button Width="75" Click="Button_Click" Background="Transparent" BorderBrush="Transparent">
-                <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/homeButton.png" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Button>
-            <TextBlock Text="Back" FontSize="15" Foreground="GreenYellow" HorizontalAlignment="Center"/>
-        </StackPanel>
+        <my:HomeButton Grid.Column ="0" Grid.Row ="0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        
 
-        <!-- Search bar -->
-        <TextBox x:Name="searchBar" Grid.Column="2" Grid.Row="0" Text="Search" Width="100" Height="20"/>
+        
 
         <!-- Preview for currently selected -->
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
