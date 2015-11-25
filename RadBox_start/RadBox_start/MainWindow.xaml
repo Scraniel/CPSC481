@@ -6,7 +6,7 @@
     <Window.Background>
         <RadialGradientBrush>
             <GradientStop Color="LightBlue"/>
-            <GradientStop Color="RoyalBlue" Offset="1.5"/>
+            <GradientStop Color="RoyalBlue" Offset="1."/>
         </RadialGradientBrush>
     </Window.Background>
     <Grid>

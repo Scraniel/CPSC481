@@ -1,4 +1,5 @@
-﻿using RadBox_start.Helpers;
+﻿using RadBox_start.DataClasses;
+using RadBox_start.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,11 @@ namespace RadBox_start.Pages
     /// </summary>
     public partial class PicturesPage : Page
     {
+        PicturesData data = new PicturesData();
         public PicturesPage()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            Thumbnails.DataContext = data;       
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -53,6 +56,18 @@ namespace RadBox_start.Pages
         }
 
         private void HomeButton_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RightArrow_Click(object sender, RoutedEventArgs e)
+        {
+            Thumbnails.SelectedIndex = (Thumbnails.SelectedIndex + 1) % Thumbnails.Items.Count;
+            Thumbnails.ScrollIntoView(Thumbnails.SelectedItem);
+
+        }
+
+        private void LeftArrow_Click(object sender, RoutedEventArgs e)
         {
 
         }

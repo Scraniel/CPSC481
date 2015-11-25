@@ -4,9 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:my="clr-namespace:RadBox_start.UserControls"
+      xmlns:data="clr-namespace:RadBox_start.DataClasses"
       mc:Ignorable="d" 
       d:DesignHeight="635" d:DesignWidth="1028"
 	Title="PicturesPage">
+    
+    <Page.Resources>
+        <data:PicturesData x:Key="Context"/>
+    </Page.Resources>
 
     <!-- Uncomment to show background in editor *** COMMENT OUT AFTER *** 
     <Page.Background>
@@ -37,7 +42,7 @@
 
         <!-- Preview for currently selected -->
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
-            <TextBlock Text="Pencils" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center"/>
+            <TextBlock Text="Pencils" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
             <Button Height="351" Margin="140,0" Click="photoPlay">
                 <Image Source="/RadBox_start;component/Assets/Images/Pictures/photos_filler.png" Stretch="Fill"/>
             </Button>
@@ -64,6 +69,7 @@
         <Image Width="200" Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/Pictures/slideshow_image.png" Grid.ColumnSpan="2" Margin="633,0,48,0"/>
 
         <!-- Thumbnails of other videos -->
+        <!--
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Image">
@@ -74,11 +80,29 @@
             <Image Source="../Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
             <Image Source="../Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
         </StackPanel>
+        -->
+
+        <ListBox x:Name="Thumbnails" Grid.Column="1" Grid.Row="2" ItemsSource="{Binding Images}" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </StackPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}" Width="200"/>        
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <!-- Right and left navigational arrows for thumbnails -->
-        <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototypeLeft.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Image Grid.Column="2" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototype.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        
+        <Button x:Name="LeftArrow" Grid.Column="0" Grid.Row="2" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Click="LeftArrow_Click">
+            <Image Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototypeLeft.png"/>
+        </Button>
+        <Button x:Name="RightArrow" Grid.Column="2" Grid.Row="2" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Click="RightArrow_Click">
+            <Image Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototype.png"/>
+        </Button>
     </Grid>
 </Page>
 
