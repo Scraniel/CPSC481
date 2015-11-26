@@ -26,7 +26,8 @@ namespace RadBox_start.Pages
         public PicturesPage()
         {
             InitializeComponent(); 
-            Thumbnails.DataContext = data;       
+            DataContext = data;
+            Thumbnails.SelectedIndex = 1;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -62,14 +63,39 @@ namespace RadBox_start.Pages
 
         private void RightArrow_Click(object sender, RoutedEventArgs e)
         {
-            Thumbnails.SelectedIndex = (Thumbnails.SelectedIndex + 1) % Thumbnails.Items.Count;
-            Thumbnails.ScrollIntoView(Thumbnails.SelectedItem);
-
+            /*
+            int index = Utility.IndexWrapAround(Thumbnails.SelectedIndex + 1, Thumbnails.Items.Count);
+            Thumbnails.SelectedIndex = index;
+            */
+            data.ShiftRight();
+            Thumbnails.SelectedIndex = 1;
         }
 
         private void LeftArrow_Click(object sender, RoutedEventArgs e)
         {
-
+            /*
+            int index = Utility.IndexWrapAround(Thumbnails.SelectedIndex - 1, Thumbnails.Items.Count);
+            Thumbnails.SelectedIndex = index;
+             */
+            data.ShiftLeft();
+            Thumbnails.SelectedIndex = 1;
         }
+
+        private void Thumbnails_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = Thumbnails.SelectedIndex;
+            e.Handled = true;
+            if (index == -1)
+                Thumbnails.SelectedIndex = 1;
+
+            if (index == PicturesData.BEGINNING)
+                LeftArrow_Click(LeftArrow, new RoutedEventArgs());
+            else if (index == PicturesData.END)
+                RightArrow_Click(RightArrow, new RoutedEventArgs());
+            
+
+            data.CurrentlySelected = data.Images[Thumbnails.SelectedIndex];
+        }
+
     }
 }

@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataClasses\PicturesData.cs" />
+    <Compile Include="Helpers\Utility.cs" />
     <Compile Include="UserControls\HomeButton.xaml.cs">
       <DependentUpon>HomeButton.xaml</DependentUpon>
     </Compile>
@@ -198,6 +199,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Fonts\3Dumb\Tension Type Font License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Pictures\1.png" />
+    <Resource Include="Assets\Images\Pictures\2.png" />
+    <Resource Include="Assets\Images\Pictures\3.png" />
+    <Resource Include="Assets\Images\Pictures\4.png" />
+    <Resource Include="Assets\Images\Pictures\5.png" />
+    <Resource Include="Assets\Images\Pictures\6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
