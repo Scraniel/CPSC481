@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RadBox_start.DataClasses
 {
-    class PicturesData : INotifyPropertyChanged
+    public class PicturesData : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

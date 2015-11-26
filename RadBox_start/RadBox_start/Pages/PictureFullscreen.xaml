@@ -28,7 +28,7 @@
         </StackPanel>
         
         <!-- Picture (fullscreen mode) -->
-        <Image Source="/RadBox_start;component/Assets/Images/Pictures/photos_filler.png" Grid.Row="1" Grid.Column="1"/>
+        <Image Source="{Binding CurrentlySelected}" Grid.Row="1" Grid.Column="1"/>
         <TextBlock Text="Pencils" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
 
         <Image Grid.Column="0" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototypeLeft.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>

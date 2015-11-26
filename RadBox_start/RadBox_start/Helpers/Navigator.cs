@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 
 using RadBox_start.Pages;
+using RadBox_start.DataClasses;
 
 namespace RadBox_start.Helpers
 {
@@ -41,6 +42,12 @@ namespace RadBox_start.Helpers
         public static void PictureFullScreen()
         {
             Navigate(picFullScreen);
+        }
+
+        public static void PictureFullScreen(PicturesData data)
+        {
+            picFullScreen.DataContext = data;
+            PictureFullScreen();
         }
 
         public static void MoviesAndShowsFullscreen()

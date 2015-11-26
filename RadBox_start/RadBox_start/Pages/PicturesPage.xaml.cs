@@ -37,7 +37,7 @@ namespace RadBox_start.Pages
 
         private void photoPlay(object sender, RoutedEventArgs e)
         {
-            Navigator.PictureFullScreen();
+            Navigator.PictureFullScreen(data);
         }
 
         private void FoldersButton_Click(object sender, RoutedEventArgs e)
@@ -63,20 +63,14 @@ namespace RadBox_start.Pages
 
         private void RightArrow_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            int index = Utility.IndexWrapAround(Thumbnails.SelectedIndex + 1, Thumbnails.Items.Count);
-            Thumbnails.SelectedIndex = index;
-            */
+
             data.ShiftRight();
             Thumbnails.SelectedIndex = 1;
         }
 
         private void LeftArrow_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            int index = Utility.IndexWrapAround(Thumbnails.SelectedIndex - 1, Thumbnails.Items.Count);
-            Thumbnails.SelectedIndex = index;
-             */
+
             data.ShiftLeft();
             Thumbnails.SelectedIndex = 1;
         }
