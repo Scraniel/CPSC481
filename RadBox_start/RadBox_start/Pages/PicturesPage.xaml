@@ -66,30 +66,7 @@
         <Image Width="200" Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/Pictures/slideshow_image.png" Grid.ColumnSpan="2" Margin="633,0,48,0"/>
 
         <!-- Thumbnails of other videos -->
-        <ListBox x:Name="Thumbnails" Grid.Column="1" Grid.Row="2" 
-                 ItemsSource="{Binding Images}" Background="Transparent" 
-                 BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-                 ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectionChanged="Thumbnails_SelectionChanged">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    </StackPanel>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Image Source="{Binding}" Width="200"/>        
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <!-- Right and left navigational arrows for thumbnails -->
-        <Button x:Name="LeftArrow" Grid.Column="0" Grid.Row="2" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Click="LeftArrow_Click">
-            <Image Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototypeLeft.png"/>
-        </Button>
-        <Button x:Name="RightArrow" Grid.Column="2" Grid.Row="2" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Click="RightArrow_Click">
-            <Image Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototype.png"/>
-        </Button>
+        <my:ThumbnailScroller x:Name="Scroller" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
     </Grid>
 </Page>
 

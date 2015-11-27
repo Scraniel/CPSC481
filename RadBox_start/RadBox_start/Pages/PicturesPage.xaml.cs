@@ -23,11 +23,16 @@ namespace RadBox_start.Pages
     public partial class PicturesPage : Page
     {
         PicturesData data = new PicturesData();
+        
         public PicturesPage()
         {
             InitializeComponent(); 
             DataContext = data;
-            Thumbnails.SelectedIndex = 1;
+            Scroller.Thumbnails.SelectedIndex = 1;
+
+            Scroller.RightArrowClick += new RoutedEventHandler(RightArrow_Click);
+            Scroller.LeftArrowClick += new RoutedEventHandler(LeftArrow_Click);
+            Scroller.SelectionChanged += new SelectionChangedEventHandler(Thumbnails_SelectionChanged);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -65,30 +70,30 @@ namespace RadBox_start.Pages
         {
 
             data.ShiftRight();
-            Thumbnails.SelectedIndex = 1;
+            Scroller.Thumbnails.SelectedIndex = 1;
         }
 
         private void LeftArrow_Click(object sender, RoutedEventArgs e)
         {
 
             data.ShiftLeft();
-            Thumbnails.SelectedIndex = 1;
+            Scroller.Thumbnails.SelectedIndex = 1;
         }
 
         private void Thumbnails_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = Thumbnails.SelectedIndex;
+            int index = Scroller.Thumbnails.SelectedIndex;
             e.Handled = true;
             if (index == -1)
-                Thumbnails.SelectedIndex = 1;
+                Scroller.Thumbnails.SelectedIndex = 1;
 
             if (index == PicturesData.BEGINNING)
-                LeftArrow_Click(LeftArrow, new RoutedEventArgs());
+                LeftArrow_Click(Scroller.LeftArrow, new RoutedEventArgs());
             else if (index == PicturesData.END)
-                RightArrow_Click(RightArrow, new RoutedEventArgs());
-            
+                RightArrow_Click(Scroller.RightArrow, new RoutedEventArgs());
 
-            data.CurrentlySelected = data.Images[Thumbnails.SelectedIndex];
+
+            data.CurrentlySelected = data.Images[Scroller.Thumbnails.SelectedIndex];
         }
 
     }
