@@ -44,11 +44,16 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="Rewind" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Background="Transparent">
+            <!-- Play button -->
+            <Button x:Name="PlayButton" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Click="PlayButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/playButton.png" />
+            </Button>
+            <Button x:Name="Rewind" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Background="Transparent">
                 <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Rewind.png"/>
             </Button>
-            <Button x:Name="Fastforward" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="Transparent">
+            <Button x:Name="Fastforward" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Background="Transparent">
                 <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Fastforward.png"/>
             </Button>
         </Grid>
@@ -76,11 +81,7 @@
                 </Grid>
             </Button>
         </StackPanel>
-
-        <!-- Play button -->
-        <Button x:Name="PlayButton" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="697,0,37,0" BorderBrush="Transparent" Background="Transparent" Click="PlayButton_Click">
-            <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/playButton.png" />
-        </Button>
+        
         <!-- Thumbnails of other videos -->
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
             <StackPanel.Resources>
