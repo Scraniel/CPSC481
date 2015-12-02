@@ -10,7 +10,7 @@
             <Button Width="75" Click="Button_Click" Background="Transparent" BorderBrush="Transparent">
                 <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/homeButton.png" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
-            <TextBlock Text="Home" FontSize="15" Foreground="GreenYellow" HorizontalAlignment="Center"/>
+            <TextBlock Text="Home" FontSize="15" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
         </StackPanel>
     </Grid>
 </UserControl>

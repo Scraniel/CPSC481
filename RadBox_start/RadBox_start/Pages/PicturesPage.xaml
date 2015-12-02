@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="635" d:DesignWidth="1028"
 	Title="PicturesPage">
-    
+
     <Page.Resources>
         <data:PicturesData x:Key="Context"/>
     </Page.Resources>
@@ -24,46 +24,52 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="368*"/>
+            <RowDefinition Height="178*"/>
         </Grid.RowDefinitions>
 
         <!-- Back button -->
-        <my:HomeButton Grid.Column ="0" Grid.Row ="0" Grid.RowSpan="2" VerticalAlignment="Top"/>
-        
+        <my:HomeButton Grid.Column ="0" Grid.Row ="0" VerticalAlignment="Top" Height="88"/>
+
         <!-- Preview for currently selected -->
-        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
-            <TextBlock Text="Pencils" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
-            <Button Height="351" Margin="140,0" Click="photoPlay">
+     
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Pencils" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
+            <Button Grid.Row="1" Grid.Column="1" Width="351" Click="photoPlay">
                 <Image Source="{Binding CurrentlySelected}" Stretch="Fill"/>
             </Button>
-        </StackPanel>
+       
         <!-- Albums -->
-        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
-            <Button x:Name="FoldersButton" Height="200" Background="Transparent" Click="FoldersButton_Click" BorderBrush="Transparent">
-                <Image Source="..\Assets\Images\Pictures\FoldersImage.png"/>
-            </Button>
-        </StackPanel>
-        <StackPanel x:Name="FoldersSelector" Height="352" VerticalAlignment="Top" Width="200" Margin="-230,0,177,0" Grid.Row="1" Background="RoyalBlue" MouseLeave="FoldersSelector_MouseLeave">
-            <TextBox Grid.Column="2" Text="Search" Width="100" Height="20"/>
-            <ScrollViewer HorizontalAlignment="Left" Height="330">
+
+        <StackPanel x:Name="FoldersSelector" Height="352" VerticalAlignment="Center" Grid.Row="1"  Grid.Column="0" Background="Transparent" Margin="0,15,0,1" >
+            <ScrollViewer HorizontalAlignment="Center" Height="330" Width="150">
                 <StackPanel>
-                    <Image Source="..\Assets\Images\Pictures\FoldersImage.png"/>
-                    <Image Source="..\Assets\Images\Pictures\FoldersImage.png"/>
-                    <Image Source="..\Assets\Images\Pictures\FoldersImage.png"/>
+                    <StackPanel.Resources>
+                        <Style TargetType="Image">
+                            <Setter Property="Margin" Value="10" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <StackPanel>
+                        <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\thumbnailFiller.png"/>
+                        <TextBlock Text="Fishes" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Image Source="/RadBox_start;component\Assets\Images\Pictures\photos_filler.png"/>
+                        <TextBlock Text="School" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\videoFiller.png"/>
+                        <TextBlock Text="Landscapes" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
+                    </StackPanel>
                 </StackPanel>
 
             </ScrollViewer>
         </StackPanel>
-
-        <!-- Slideshow button -->
-        <Image Width="200" Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/Pictures/slideshow_image.png" Grid.ColumnSpan="2" Margin="633,0,48,0"/>
 
         <!-- Thumbnails of other videos -->
         <my:ThumbnailScroller x:Name="Scroller" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>

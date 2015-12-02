@@ -45,5 +45,25 @@ namespace RadBox_start.Pages
         {
             Navigator.MoviesAndShowsFullscreen();
         }
+
+        private void OpenCategories_Click(object sender, RoutedEventArgs e)
+        {
+            CategoriesList.Visibility = Visibility.Visible;
+        }
+
+        private void CategoriesList_MouseLeave(object sender, MouseEventArgs e)
+        {
+            CategoriesList.Visibility = Visibility.Collapsed;
+        }
+
+        private void MoviesButton_Click(object sender, RoutedEventArgs e)
+        {
+            EpisodesList.Visibility = Visibility.Collapsed;
+        }
+
+        private void TVShowsButton_Click(object sender, RoutedEventArgs e)
+        {
+            EpisodesList.Visibility = Visibility.Visible;
+        }
     }
 }

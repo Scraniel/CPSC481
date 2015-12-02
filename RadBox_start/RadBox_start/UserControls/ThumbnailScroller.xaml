@@ -24,7 +24,7 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding}" Width="200"/>
+                    <Image Source="{Binding}" Height="100" Margin="20"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
