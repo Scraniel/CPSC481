@@ -33,6 +33,14 @@ namespace RadBox_start.Pages
             Scroller.RightArrowClick += new RoutedEventHandler(RightArrow_Click);
             Scroller.LeftArrowClick += new RoutedEventHandler(LeftArrow_Click);
             Scroller.SelectionChanged += new SelectionChangedEventHandler(Thumbnails_SelectionChanged);
+
+            data.Add("/RadBox_start;component/Assets/Images/Pictures/1.png");
+            data.Add("/RadBox_start;component/Assets/Images/Pictures/2.png");
+            data.Add("/RadBox_start;component/Assets/Images/Pictures/3.png");
+            data.Add("/RadBox_start;component/Assets/Images/Pictures/4.png");
+            data.Add("/RadBox_start;component/Assets/Images/Pictures/5.png");
+            data.Add("/RadBox_start;component/Assets/Images/Pictures/6.png");
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

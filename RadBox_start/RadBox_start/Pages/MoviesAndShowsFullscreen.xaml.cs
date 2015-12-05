@@ -23,21 +23,23 @@ namespace RadBox_start.Pages
     /// </summary>
     public partial class MoviesAndShowsFullscreen : Page
     {
-        MoviesAndShowsData data = new MoviesAndShowsData();
+        public MoviesAndShowsData data = new MoviesAndShowsData();
 
         public MoviesAndShowsFullscreen()
         {
             InitializeComponent();
 
             DataContext = data;
-            Video.Source = new Uri(data.CurrentlyPlaying, UriKind.Relative);
-
-            int j = 300;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Navigator.MoviesAndShowsPage();
+        }
+
+        private void Video_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Button_Click(BackButton, new RoutedEventArgs());
         }
     }
 }

@@ -32,6 +32,10 @@ namespace RadBox_start.Pages
             Scroller.RightArrowClick += new RoutedEventHandler(RightArrow_Click);
             Scroller.LeftArrowClick += new RoutedEventHandler(LeftArrow_Click);
             Scroller.SelectionChanged += new SelectionChangedEventHandler(Thumbnails_SelectionChanged);
+
+            data.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\lego.png");
+            data.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\bunny.PNG");
+            data.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\letitgo.png");
         }
 
         /// <summary>
@@ -46,12 +50,13 @@ namespace RadBox_start.Pages
 
         private void Screen_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.MoviesAndShowsFullscreen();
+
+            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % PicturesData.MAX_SHOWN, MoviesAndShowsData.MovieType.All);
         }
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.MoviesAndShowsFullscreen();
+            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % PicturesData.MAX_SHOWN, MoviesAndShowsData.MovieType.All);
         }
 
         private void OpenCategories_Click(object sender, RoutedEventArgs e)

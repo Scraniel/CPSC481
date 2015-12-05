@@ -9,11 +9,19 @@ using System.Windows.Controls;
 
 namespace RadBox_start.DataClasses
 {
-    class MoviesAndShowsData : INotifyPropertyChanged
+    public class MoviesAndShowsData : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        List<string> currentlyShown, moviesAction, moviesCartoons, moviesSingalong;
+        public enum MovieType
+        {
+            Action,
+            Cartoons,
+            Singalong,
+            All
+        }
+
+        List<string> moviesAction, moviesCartoons, moviesSingalong;
 
         string _currentlyPlaying;
         public string CurrentlyPlaying
@@ -29,7 +37,43 @@ namespace RadBox_start.DataClasses
 
         public MoviesAndShowsData()
         {
-            CurrentlyPlaying = "../Assets/Videos/SampleVideo_1080x720_1mb.mp4";
+            moviesCartoons = new List<string>();
+            moviesAction = new List<string>();
+            moviesSingalong = new List<string>();
+
+
+            moviesCartoons.Add( @"Assets\Videos\bunny.mp4");
+            moviesAction.Add(@"Assets\Videos\lego.mp4");
+            moviesSingalong.Add(@"Assets\Videos\letitgo.mp4");
+
+            CurrentlyPlaying = @"Assets\Videos\lego.mp4";
+
+        }
+
+        // The index is based on 
+        public void SetCurrentlyPlaying(int index, MovieType type)
+        {
+            switch(type)
+            {
+                case MovieType.All:
+                    if (index < moviesAction.Count)
+                        CurrentlyPlaying = moviesAction[index];
+                    else if (index - moviesAction.Count < moviesCartoons.Count)
+                        CurrentlyPlaying = moviesCartoons[index - moviesAction.Count];
+                    else
+                        CurrentlyPlaying = moviesSingalong[index - moviesAction.Count - moviesCartoons.Count];
+                    break;
+                case MovieType.Action:
+                    CurrentlyPlaying = moviesAction[index];
+                    break;
+                case MovieType.Cartoons:
+                    CurrentlyPlaying = moviesCartoons[index];
+                    break;
+                case MovieType.Singalong:
+                    CurrentlyPlaying = moviesSingalong[index];
+                    break;
+            }
+
         }
     }
 }
