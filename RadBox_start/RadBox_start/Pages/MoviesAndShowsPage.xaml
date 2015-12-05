@@ -4,9 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:my="clr-namespace:RadBox_start.UserControls"
+      xmlns:cn="clr-namespace:RadBox_start.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="635" d:DesignWidth="1028"
 	Title="MoviesAndShowsPage">
+    
+    <Page.Resources>
+        <cn:PathToNameConverter x:Key="converter"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -49,8 +54,8 @@
         
         <!-- Preview for currently selected-->
         
-        <TextBlock Grid.Column="1" Text="WALL-E" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center"/>    
-        <Button x:Name="ScreenClick" Grid.Column="1" Grid.Row="1"  Width="500" Background="Transparent" Click="Screen_Click" VerticalAlignment="Center">
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding CurrentlySelected, Converter={StaticResource converter}}" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" FontSize="40" Foreground="GreenYellow" HorizontalAlignment="Center"/>    
+        <Button x:Name="ScreenClick" Grid.Column="1" Grid.Row="1"  MaxHeight="300" Width="500" Background="Transparent" Click="Screen_Click" VerticalAlignment="Center">
                 <Image Source="{Binding CurrentlySelected}" Stretch="Fill"/>
         </Button>
         
@@ -123,18 +128,22 @@
             <TextBlock Foreground="GreenYellow" Text="Categories" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
         </StackPanel>
 
-        <StackPanel x:Name="CategoriesList" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Background="RoyalBlue" Height="210" VerticalAlignment="Top" Visibility="Collapsed" MouseLeave="CategoriesList_MouseLeave">
+        <StackPanel x:Name="CategoriesList" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Background="RoyalBlue" Height="280" VerticalAlignment="Top" Visibility="Collapsed" MouseLeave="CategoriesList_MouseLeave">
             <StackPanel >
-                <Button Width="100" Height="50"/>
+                <Button x:Name="ActionButton" Width="100" Height="50" Click="ActionButton_Click"/>
                 <TextBlock Foreground="GreenYellow" Text="Action / Adventure" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel >
-                <Button Width="100" Height="50"/>
+                <Button x:Name="CartoonsButton" Width="100" Height="50" Click="CartoonsButton_Click"/>
                 <TextBlock Foreground="GreenYellow" Text="Cartoons" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel >
-                <Button Width="100" Height="50"/>
+                <Button x:Name="SingalongButton" Width="100" Height="50" Click="SingalongButton_Click"/>
                 <TextBlock Foreground="GreenYellow" Text="Sing-Along" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel >
+                <Button x:Name="AllButton" Width="100" Height="50" Click="AllButton_Click"/>
+                <TextBlock Foreground="GreenYellow" Text="All" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
     </Grid>

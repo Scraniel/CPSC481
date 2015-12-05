@@ -4,23 +4,15 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:my="clr-namespace:RadBox_start.UserControls"
+      xmlns:cn ="clr-namespace:RadBox_start.Converters"
       xmlns:data="clr-namespace:RadBox_start.DataClasses"
       mc:Ignorable="d" 
       d:DesignHeight="635" d:DesignWidth="1028"
 	Title="PicturesPage">
 
     <Page.Resources>
-        <data:PicturesData x:Key="Context"/>
+        <cn:PathToNameConverter x:Key="converter"/>
     </Page.Resources>
-
-    <!-- Uncomment to show background in editor *** COMMENT OUT AFTER *** 
-    <Page.Background>
-        <RadialGradientBrush>
-            <GradientStop Color="LightBlue"/>
-            <GradientStop Color="RoyalBlue" Offset="1.5"/>
-        </RadialGradientBrush>
-    </Page.Background>
-    -->
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -39,7 +31,7 @@
 
         <!-- Preview for currently selected -->
      
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="Pencils" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding CurrentlySelected, Converter={StaticResource converter}}" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
             <Button Grid.Row="1" Grid.Column="1" Width="351" Click="photoPlay">
                 <Image Source="{Binding CurrentlySelected}" Stretch="Fill"/>
             </Button>

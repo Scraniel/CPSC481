@@ -23,6 +23,10 @@ namespace RadBox_start.Pages
     public partial class MoviesAndShowsPage : Page
     {
         PicturesData data = new PicturesData();
+        MoviesAndShowsData.MovieType currentType = MoviesAndShowsData.MovieType.All;
+        List<string> cartoonPics = new List<string>();
+        List<string> actionPics = new List<string>();
+        List<string> singalongPics = new List<string>();
 
         public MoviesAndShowsPage()
         {
@@ -33,9 +37,21 @@ namespace RadBox_start.Pages
             Scroller.LeftArrowClick += new RoutedEventHandler(LeftArrow_Click);
             Scroller.SelectionChanged += new SelectionChangedEventHandler(Thumbnails_SelectionChanged);
 
-            data.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\lego.png");
-            data.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\bunny.PNG");
-            data.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\letitgo.png");
+            actionPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Lego.png");
+            actionPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Honey, I Shrunk The Kids.png");
+            actionPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\The Goonies.png");
+
+            cartoonPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\The Amazing Bunny.PNG");
+            cartoonPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Spongebob.png");
+            cartoonPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Spirited Away.png");
+
+            singalongPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Let It Go.png");
+            singalongPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\ABC Song.png");
+            singalongPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Fun Song.png");
+
+            data.Add(actionPics);
+            data.Add(cartoonPics);
+            data.Add(singalongPics);
         }
 
         /// <summary>
@@ -51,12 +67,12 @@ namespace RadBox_start.Pages
         private void Screen_Click(object sender, RoutedEventArgs e)
         {
 
-            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % PicturesData.MAX_SHOWN, MoviesAndShowsData.MovieType.All);
+            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % data._allImages.Count, currentType);
         }
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % PicturesData.MAX_SHOWN, MoviesAndShowsData.MovieType.All);
+            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % data._allImages.Count, currentType);
         }
 
         private void OpenCategories_Click(object sender, RoutedEventArgs e)
@@ -98,7 +114,7 @@ namespace RadBox_start.Pages
             int index = Scroller.Thumbnails.SelectedIndex;
             e.Handled = true;
             if (index == -1)
-                Scroller.Thumbnails.SelectedIndex = 1;
+                return;
 
             if (index == PicturesData.BEGINNING)
                 LeftArrow_Click(Scroller.LeftArrow, new RoutedEventArgs());
@@ -107,6 +123,53 @@ namespace RadBox_start.Pages
 
 
             data.CurrentlySelected = data.Images[Scroller.Thumbnails.SelectedIndex];
+        }
+
+        private void CartoonsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentType != MoviesAndShowsData.MovieType.Cartoons)
+            {
+                data.Clear();
+                data.Add(cartoonPics);
+                currentType = MoviesAndShowsData.MovieType.Cartoons;
+                Scroller.Thumbnails.SelectedIndex = 1;
+            }
+            
+        }
+
+        private void ActionButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentType != MoviesAndShowsData.MovieType.Action)
+            {
+                data.Clear();
+                data.Add(actionPics);
+                currentType = MoviesAndShowsData.MovieType.Action;
+                Scroller.Thumbnails.SelectedIndex = 1;
+            }
+        }
+
+        private void SingalongButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentType != MoviesAndShowsData.MovieType.Singalong)
+            {
+                data.Clear();
+                data.Add(singalongPics);
+                currentType = MoviesAndShowsData.MovieType.Singalong;
+                Scroller.Thumbnails.SelectedIndex = 1;
+            }
+        }
+
+        private void AllButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentType != MoviesAndShowsData.MovieType.All)
+            {
+                data.Clear();
+                data.Add(actionPics);
+                data.Add(cartoonPics);
+                data.Add(singalongPics);
+                currentType = MoviesAndShowsData.MovieType.All;
+                Scroller.Thumbnails.SelectedIndex = 1;
+            }
         }
     }
 }

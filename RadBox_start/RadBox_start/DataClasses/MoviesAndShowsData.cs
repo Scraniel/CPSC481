@@ -43,10 +43,18 @@ namespace RadBox_start.DataClasses
 
 
             moviesCartoons.Add( @"Assets\Videos\bunny.mp4");
-            moviesAction.Add(@"Assets\Videos\lego.mp4");
-            moviesSingalong.Add(@"Assets\Videos\letitgo.mp4");
+            moviesCartoons.Add(@"Assets\Videos\spongebob.mp4");
+            moviesCartoons.Add(@"Assets\Videos\spiritedAway.mp4");
 
-            CurrentlyPlaying = @"Assets\Videos\lego.mp4";
+            moviesAction.Add(@"Assets\Videos\lego.mp4");
+            moviesAction.Add(@"Assets\Videos\shrunk.mp4");
+            moviesAction.Add(@"Assets\Videos\goonies.mp4");
+
+            moviesSingalong.Add(@"Assets\Videos\letitgo.mp4");
+            moviesSingalong.Add(@"Assets\Videos\abc.m4v");
+            moviesSingalong.Add(@"Assets\Videos\dumbestSong.mp4");
+
+            CurrentlyPlaying = @"Assets\Videos\spongebob.mp4";
 
         }
 

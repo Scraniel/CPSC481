@@ -80,5 +80,10 @@ namespace RadBox_start.Pages
                 _slideshowOn = true;
             }
         }
+
+        private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Button_Click(BackButton, new RoutedEventArgs());
+        }
     }
 }
