@@ -215,6 +215,14 @@
     <Resource Include="Assets\Images\Pictures\5.png" />
     <Resource Include="Assets\Images\Pictures\6.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\StartPage\greenCamera.png" />
+    <Resource Include="Assets\Images\StartPage\greenTV.png" />
+    <Resource Include="Assets\Images\StartPage\RadboxLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\StartPage\backArrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
