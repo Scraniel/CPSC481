@@ -48,6 +48,7 @@ namespace RadBox_start.Helpers
         {
             picFullScreen.DataContext = data;
             PictureFullScreen();
+            picFullScreen.dispatcherTimer.Start();
         }
 
         public static void MoviesAndShowsFullscreen()

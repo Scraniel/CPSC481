@@ -21,28 +21,7 @@
         </Grid.RowDefinitions>
 
         <!-- Back button -->
-        <my:HomeButton Grid.Column ="0" Grid.Row ="0" Grid.RowSpan="2" VerticalAlignment="Top"/>
-
-        <!-- Categories Button -->
-        <StackPanel Grid.Column="2" Grid.RowSpan="2">
-            <Button x:Name="OpenCategories" Width="100" Height="50" Click="OpenCategories_Click" />
-            <TextBlock Foreground="GreenYellow" Text="Categories" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
-        </StackPanel>
-
-        <StackPanel x:Name="CategoriesList" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Background="RoyalBlue" Height="210" VerticalAlignment="Top" Visibility="Collapsed" MouseLeave="CategoriesList_MouseLeave">
-            <StackPanel >
-                <Button Width="100" Height="50"/>
-                <TextBlock Foreground="GreenYellow" Text="Action / Adventure" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel >
-                <Button Width="100" Height="50"/>
-                <TextBlock Foreground="GreenYellow" Text="Cartoons" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel >
-                <Button Width="100" Height="50"/>
-                <TextBlock Foreground="GreenYellow" Text="Sing-Along" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </StackPanel>
+        <my:HomeButton Grid.Column ="0" Grid.Row ="0" Grid.RowSpan="2" VerticalAlignment="Top"/>           
         
         <!-- Episodes Listing -->
         <ListBox x:Name="EpisodesList" Grid.Column="2" Grid.Row="1" Background="Transparent"  Visibility="Collapsed">
@@ -124,8 +103,8 @@
                 </Grid>
             </Button>
         </StackPanel>
-        
-        <!-- Thumbnails of other videos -->
+       <!-- 
+        <!- - Thumbnails of other videos - -
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Image">
@@ -137,9 +116,32 @@
             <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/greyedoutThumbnailFiller.png" Width="200"/>
         </StackPanel>
 
-        <!-- Right and left navigational arrows for thumbnails -->
+        <!- - Right and left navigational arrows for thumbnails - -
         <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototypeLeft.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Image Grid.Column="2" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototype.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        -->
+        
+        <my:ThumbnailScroller x:Name="Scroller" Grid.Row="2" Grid.ColumnSpan="3"/>
+        
+        <!-- Categories Button -->
+        <StackPanel Grid.Column="2" Grid.RowSpan="2">
+            <Button x:Name="OpenCategories" Width="100" Height="50" Click="OpenCategories_Click" />
+            <TextBlock Foreground="GreenYellow" Text="Categories" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
+        </StackPanel>
 
+        <StackPanel x:Name="CategoriesList" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Background="RoyalBlue" Height="210" VerticalAlignment="Top" Visibility="Collapsed" MouseLeave="CategoriesList_MouseLeave">
+            <StackPanel >
+                <Button Width="100" Height="50"/>
+                <TextBlock Foreground="GreenYellow" Text="Action / Adventure" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel >
+                <Button Width="100" Height="50"/>
+                <TextBlock Foreground="GreenYellow" Text="Cartoons" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel >
+                <Button Width="100" Height="50"/>
+                <TextBlock Foreground="GreenYellow" Text="Sing-Along" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

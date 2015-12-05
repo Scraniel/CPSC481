@@ -18,7 +18,7 @@ namespace RadBox_start.DataClasses
         private int _currentStart;
         public static int MAX_SHOWN = 3;
         public static int BEGINNING = 0;
-        public static int END = 2;
+        public static int END = MAX_SHOWN - 1;
         public ObservableCollection<string> Images {get; set;}
         private string _currentlySelected;
         public string CurrentlySelected
