@@ -28,7 +28,7 @@ namespace RadBox_start.Pages
         {
             InitializeComponent();
             DataContext = data;
-
+            Scroller.Thumbnails.SelectedIndex = 1;
             Scroller.RightArrowClick += new RoutedEventHandler(RightArrow_Click);
             Scroller.LeftArrowClick += new RoutedEventHandler(LeftArrow_Click);
             Scroller.SelectionChanged += new SelectionChangedEventHandler(Thumbnails_SelectionChanged);

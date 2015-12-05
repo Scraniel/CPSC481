@@ -48,12 +48,12 @@
         </ListBox>
         
         <!-- Preview for currently selected-->
-        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" >
-            <TextBlock Text="WALL-E" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center"/>
-            <Button x:Name="ScreenClick" Grid.Column="1" Grid.Row="1"  Width="500" Margin="10,0" Background="Transparent" Click="Screen_Click">
-                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/videoFiller.png" Stretch="Fill"/>
-            </Button>
-        </StackPanel>
+        
+        <TextBlock Grid.Column="1" Text="WALL-E" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center"/>    
+        <Button x:Name="ScreenClick" Grid.Column="1" Grid.Row="1"  Width="500" Background="Transparent" Click="Screen_Click" VerticalAlignment="Center">
+                <Image Source="{Binding CurrentlySelected}" Stretch="Fill"/>
+        </Button>
+        
 
         <!-- Fastforward and Rewind -->
         <Grid Grid.Column="1" Grid.Row="1">
@@ -71,12 +71,6 @@
             <!-- Play button -->
             <Button x:Name="PlayButton" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Click="PlayButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/playButton.png" />
-            </Button>
-            <Button x:Name="Rewind" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Background="Transparent">
-                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Rewind.png"/>
-            </Button>
-            <Button x:Name="Fastforward" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="Transparent">
-                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Fastforward.png"/>
             </Button>
         </Grid>
 
