@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataClasses\MoviesAndShowsData.cs" />
     <Compile Include="DataClasses\PicturesData.cs" />
     <Compile Include="Helpers\Utility.cs" />
     <Compile Include="UserControls\HomeButton.xaml.cs">
@@ -222,6 +223,23 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\StartPage\backArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Pictures\slideshow_off_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\letitgo.PNG" />
+    <Content Include="Assets\Videos\letitgo.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\Images\MoviesAndShows\bunny.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\lego.png" />
+    <Content Include="Assets\Videos\lego.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Videos\bunny.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

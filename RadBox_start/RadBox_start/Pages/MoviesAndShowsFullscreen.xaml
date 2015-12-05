@@ -21,16 +21,33 @@
         
         <!-- Back button -->
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
-            <Button Width="75" Click="Button_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="BackButton" Width="75" Click="Button_Click" Background="Transparent" BorderBrush="Transparent">
                 <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/backArrow.png" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
             <TextBlock Text="Back" FontSize="15" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
         </StackPanel>
         
         <!-- Movie / TV show in fullscreen -->
-        <Image Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/videoFiller.png"/>
-        
-        
+        <MediaElement x:Name="Video" Grid.Column="1" Grid.Row="1" MouseLeftButtonUp="Video_MouseLeftButtonUp" MouseEnter="Video_MouseEnter" MouseLeave="Video_MouseLeave" 
+                      MediaEnded="Video_MediaEnded" Source="{Binding CurrentlyPlaying}"/>
+        <Grid x:Name="PlaybackControls" Grid.Column="1" Grid.Row="1" MouseLeave="PlaybackControls_MouseLeave" MouseEnter="PlaybackControls_MouseEnter">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <RepeatButton Delay="500" x:Name="Rewind" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Background="Transparent" Click="Rewind_Click">
+                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Rewind.png"/>
+            </RepeatButton>
+            <RepeatButton Delay="500" x:Name="Fastforward" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="Transparent" Click="Fastforward_Click">
+                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Fastforward.png"/>
+            </RepeatButton>
+        </Grid>
         <!-- Volume Controls -->
         <Image Grid.Column="1" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/volumeControlsFiller.png" HorizontalAlignment="Right" VerticalAlignment="Top"/>
     </Grid>

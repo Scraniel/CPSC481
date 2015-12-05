@@ -1,4 +1,5 @@
-﻿using RadBox_start.Helpers;
+﻿using RadBox_start.DataClasses;
+using RadBox_start.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,20 @@ namespace RadBox_start.Pages
     /// </summary>
     public partial class MoviesAndShowsPage : Page
     {
+        PicturesData data = new PicturesData();
+
         public MoviesAndShowsPage()
         {
             InitializeComponent();
+            DataContext = data;
+            Scroller.Thumbnails.SelectedIndex = 1;
+            Scroller.RightArrowClick += new RoutedEventHandler(RightArrow_Click);
+            Scroller.LeftArrowClick += new RoutedEventHandler(LeftArrow_Click);
+            Scroller.SelectionChanged += new SelectionChangedEventHandler(Thumbnails_SelectionChanged);
+
+            data.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\lego.png");
+            data.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\bunny.PNG");
+            data.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\letitgo.png");
         }
 
         /// <summary>
@@ -38,12 +50,13 @@ namespace RadBox_start.Pages
 
         private void Screen_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.MoviesAndShowsFullscreen();
+
+            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % PicturesData.MAX_SHOWN, MoviesAndShowsData.MovieType.All);
         }
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.MoviesAndShowsFullscreen();
+            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % PicturesData.MAX_SHOWN, MoviesAndShowsData.MovieType.All);
         }
 
         private void OpenCategories_Click(object sender, RoutedEventArgs e)
@@ -64,6 +77,36 @@ namespace RadBox_start.Pages
         private void TVShowsButton_Click(object sender, RoutedEventArgs e)
         {
             EpisodesList.Visibility = Visibility.Visible;
+        }
+
+        private void RightArrow_Click(object sender, RoutedEventArgs e)
+        {
+
+            data.ShiftRight();
+            Scroller.Thumbnails.SelectedIndex = 1;
+        }
+
+        private void LeftArrow_Click(object sender, RoutedEventArgs e)
+        {
+
+            data.ShiftLeft();
+            Scroller.Thumbnails.SelectedIndex = 1;
+        }
+
+        private void Thumbnails_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = Scroller.Thumbnails.SelectedIndex;
+            e.Handled = true;
+            if (index == -1)
+                Scroller.Thumbnails.SelectedIndex = 1;
+
+            if (index == PicturesData.BEGINNING)
+                LeftArrow_Click(Scroller.LeftArrow, new RoutedEventArgs());
+            else if (index == PicturesData.END)
+                RightArrow_Click(Scroller.RightArrow, new RoutedEventArgs());
+
+
+            data.CurrentlySelected = data.Images[Scroller.Thumbnails.SelectedIndex];
         }
     }
 }

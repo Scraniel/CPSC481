@@ -15,10 +15,10 @@ namespace RadBox_start.DataClasses
 
         // Should always be 3 elements
         private List<string> _allImages;
-        private int _currentStart;
+        public int _currentStart;
         public static int MAX_SHOWN = 3;
         public static int BEGINNING = 0;
-        public static int END = 2;
+        public static int END = MAX_SHOWN - 1;
         public ObservableCollection<string> Images {get; set;}
         private string _currentlySelected;
         public string CurrentlySelected
@@ -37,16 +37,6 @@ namespace RadBox_start.DataClasses
             Images = new ObservableCollection<string>();
             _allImages = new List<string>();
             _currentStart = 0;
-            _allImages.Add("/RadBox_start;component/Assets/Images/Pictures/1.png");
-            _allImages.Add("/RadBox_start;component/Assets/Images/Pictures/2.png");
-            _allImages.Add("/RadBox_start;component/Assets/Images/Pictures/3.png");
-            _allImages.Add("/RadBox_start;component/Assets/Images/Pictures/4.png");
-            _allImages.Add("/RadBox_start;component/Assets/Images/Pictures/5.png");
-            _allImages.Add("/RadBox_start;component/Assets/Images/Pictures/6.png");
-
-            Images.Add("/RadBox_start;component/Assets/Images/Pictures/1.png");
-            Images.Add("/RadBox_start;component/Assets/Images/Pictures/2.png");
-            Images.Add("/RadBox_start;component/Assets/Images/Pictures/3.png");
         }
 
         public void ShiftRight()
@@ -62,6 +52,16 @@ namespace RadBox_start.DataClasses
             Images.RemoveAt(END);
             _currentStart = Utility.IndexWrapAround(_currentStart - 1, _allImages.Count);
             Images.Insert(0,_allImages[_currentStart]);
+        }
+
+        public void Add(string newPhoto)
+        {
+            if(Images.Count < MAX_SHOWN)
+            {
+                Images.Add(newPhoto);
+            }
+
+            _allImages.Add(newPhoto);
         }
     }
 }
