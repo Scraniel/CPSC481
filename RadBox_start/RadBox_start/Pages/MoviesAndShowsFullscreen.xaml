@@ -28,7 +28,7 @@
         </StackPanel>
         
         <!-- Movie / TV show in fullscreen -->
-        <Image Grid.Column="1" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/videoFiller.png"/>
+        <MediaElement x:Name="Video" Grid.Column="1" Grid.Row="1"/>
         
         
         <!-- Volume Controls -->

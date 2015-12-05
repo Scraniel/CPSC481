@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using RadBox_start.Helpers;
+using RadBox_start.DataClasses;
 
 namespace RadBox_start.Pages
 {
@@ -22,9 +23,16 @@ namespace RadBox_start.Pages
     /// </summary>
     public partial class MoviesAndShowsFullscreen : Page
     {
+        MoviesAndShowsData data = new MoviesAndShowsData();
+
         public MoviesAndShowsFullscreen()
         {
             InitializeComponent();
+
+            DataContext = data;
+            Video.Source = new Uri(data.CurrentlyPlaying, UriKind.Relative);
+
+            int j = 300;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
