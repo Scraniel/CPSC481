@@ -18,7 +18,7 @@ namespace RadBox_start.DataClasses
             Action,
             Cartoons,
             Singalong,
-            All
+            All,
         }
 
         List<string> moviesAction, moviesCartoons, moviesSingalong;

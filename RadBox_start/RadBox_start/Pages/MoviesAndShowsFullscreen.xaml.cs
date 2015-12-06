@@ -26,6 +26,10 @@ namespace RadBox_start.Pages
         public MoviesAndShowsData data = new MoviesAndShowsData();
         TimeSpan OneSecond = new TimeSpan(0, 0, 1);
 
+        BitmapImage MuteIcon = new BitmapImage(new Uri(@"/RadBox_start;component\Assets\Images\MoviesAndShows\muted.png", UriKind.Relative));
+        BitmapImage UnmuteIcon = new BitmapImage(new Uri(@"/RadBox_start;component\Assets\Images\MoviesAndShows\volumeControlsFiller.png", UriKind.Relative));
+        double currentVolume = 50;
+
         public MoviesAndShowsFullscreen()
         {
             InitializeComponent();
@@ -84,7 +88,44 @@ namespace RadBox_start.Pages
         private void Video_MediaEnded(object sender, RoutedEventArgs e)
         {
             Video.Position = new TimeSpan(0);
-            //Video.Play();
+        }
+
+        private void VolumeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(Video.IsMuted)
+            {
+                unmute();
+            }
+            else
+            {
+                mute();
+            }
+            
+        }
+
+        private void Volume_ValueChanged(object sender, RoutedEventArgs e)
+        {
+           Video.Volume = Volume.Value / Volume.Maximum;
+        }
+
+        private void mute()
+        {
+            Video.IsMuted = true;
+            currentVolume = Volume.Value;
+            Volume.Value = 0;
+            var image = VolumeButton.Content as Image;
+            if(image != null)
+                image.Source = MuteIcon;
+            
+        }
+
+        private void unmute()
+        {
+            Video.IsMuted = false;
+            Volume.Value = currentVolume;
+            var image = VolumeButton.Content as Image;
+            if (image != null)
+                image.Source = UnmuteIcon;
         }
     }
 }

@@ -52,6 +52,9 @@ namespace RadBox_start.Pages
             data.Add(actionPics);
             data.Add(cartoonPics);
             data.Add(singalongPics);
+
+
+            MoviesButton.IsEnabled = false;
         }
 
         /// <summary>
@@ -87,11 +90,15 @@ namespace RadBox_start.Pages
 
         private void MoviesButton_Click(object sender, RoutedEventArgs e)
         {
+            MoviesButton.IsEnabled = false;
+            TVShowsButton.IsEnabled = true;
             EpisodesList.Visibility = Visibility.Collapsed;
         }
 
         private void TVShowsButton_Click(object sender, RoutedEventArgs e)
         {
+            TVShowsButton.IsEnabled = false;
+            MoviesButton.IsEnabled = true;
             EpisodesList.Visibility = Visibility.Visible;
         }
 
@@ -134,6 +141,7 @@ namespace RadBox_start.Pages
                 currentType = MoviesAndShowsData.MovieType.Cartoons;
                 Scroller.Thumbnails.SelectedIndex = 1;
             }
+            CategoriesList.Visibility = Visibility.Collapsed;
             
         }
 
@@ -146,6 +154,7 @@ namespace RadBox_start.Pages
                 currentType = MoviesAndShowsData.MovieType.Action;
                 Scroller.Thumbnails.SelectedIndex = 1;
             }
+            CategoriesList.Visibility = Visibility.Collapsed;
         }
 
         private void SingalongButton_Click(object sender, RoutedEventArgs e)
@@ -157,6 +166,7 @@ namespace RadBox_start.Pages
                 currentType = MoviesAndShowsData.MovieType.Singalong;
                 Scroller.Thumbnails.SelectedIndex = 1;
             }
+            CategoriesList.Visibility = Visibility.Collapsed;
         }
 
         private void AllButton_Click(object sender, RoutedEventArgs e)
@@ -170,6 +180,7 @@ namespace RadBox_start.Pages
                 currentType = MoviesAndShowsData.MovieType.All;
                 Scroller.Thumbnails.SelectedIndex = 1;
             }
+            CategoriesList.Visibility = Visibility.Collapsed;
         }
     }
 }

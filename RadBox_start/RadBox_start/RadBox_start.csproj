@@ -235,6 +235,11 @@
     <Resource Include="Assets\Images\MoviesAndShows\Honey, I Shrunk The Kids.PNG" />
     <Resource Include="Assets\Images\MoviesAndShows\Spirited Away.PNG" />
     <Resource Include="Assets\Images\MoviesAndShows\Spongebob.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\actionAdventure.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\singalong.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\cartoons.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\All.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\muted.png" />
     <Content Include="Assets\Videos\dumbestSong.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

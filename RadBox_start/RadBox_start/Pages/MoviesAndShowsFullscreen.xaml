@@ -48,7 +48,12 @@
                 <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Fastforward.png"/>
             </RepeatButton>
         </Grid>
-        <!-- Volume Controls -->
-        <Image Grid.Column="1" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/MoviesAndShows/volumeControlsFiller.png" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right">
+            <Button x:Name="VolumeButton" Background="Transparent" BorderBrush="Transparent" Click="VolumeButton_Click">
+                <Image  Source="/RadBox_start;component/Assets/Images/MoviesAndShows/volumeControlsFiller.png" VerticalAlignment="Top"/>
+            </Button>
+            <Slider Width="125" x:Name="Volume" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Background="YellowGreen" Value="50" Maximum="100" ValueChanged="Volume_ValueChanged"/>
+        </StackPanel>
     </Grid>
 </Page>
