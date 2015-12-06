@@ -53,6 +53,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\PathToNameConverter.cs" />
+    <Compile Include="DataClasses\MoviesAndShowsData.cs" />
     <Compile Include="DataClasses\PicturesData.cs" />
     <Compile Include="Helpers\Utility.cs" />
     <Compile Include="UserControls\HomeButton.xaml.cs">
@@ -222,6 +224,52 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\StartPage\backArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Pictures\slideshow_off_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MoviesAndShows\ABC Song.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\Fun Song.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\The Goonies.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\Honey, I Shrunk The Kids.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\Spirited Away.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\Spongebob.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\actionAdventure.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\singalong.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\cartoons.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\All.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\muted.png" />
+    <Content Include="Assets\Videos\dumbestSong.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Videos\goonies.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Videos\shrunk.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Videos\spiritedAway.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Videos\spongebob.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\Images\MoviesAndShows\Let It Go.PNG" />
+    <Content Include="Assets\Videos\abc.m4v">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Videos\letitgo.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\Images\MoviesAndShows\The Amazing Bunny.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\Lego.png" />
+    <Content Include="Assets\Videos\lego.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Videos\bunny.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

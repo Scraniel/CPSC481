@@ -4,9 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:my="clr-namespace:RadBox_start.UserControls"
+      xmlns:cn="clr-namespace:RadBox_start.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="635" d:DesignWidth="1028"
 	Title="MoviesAndShowsPage">
+    
+    <Page.Resources>
+        <cn:PathToNameConverter x:Key="converter"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,33 +26,12 @@
         </Grid.RowDefinitions>
 
         <!-- Back button -->
-        <my:HomeButton Grid.Column ="0" Grid.Row ="0" Grid.RowSpan="2" VerticalAlignment="Top"/>
-
-        <!-- Categories Button -->
-        <StackPanel Grid.Column="2" Grid.RowSpan="2">
-            <Button x:Name="OpenCategories" Width="100" Height="50" Click="OpenCategories_Click" />
-            <TextBlock Foreground="GreenYellow" Text="Categories" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
-        </StackPanel>
-
-        <StackPanel x:Name="CategoriesList" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Background="RoyalBlue" Height="210" VerticalAlignment="Top" Visibility="Collapsed" MouseLeave="CategoriesList_MouseLeave">
-            <StackPanel >
-                <Button Width="100" Height="50"/>
-                <TextBlock Foreground="GreenYellow" Text="Action / Adventure" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel >
-                <Button Width="100" Height="50"/>
-                <TextBlock Foreground="GreenYellow" Text="Cartoons" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel >
-                <Button Width="100" Height="50"/>
-                <TextBlock Foreground="GreenYellow" Text="Sing-Along" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </StackPanel>
+        <my:HomeButton Grid.Column ="0" Grid.Row ="0" Grid.RowSpan="2" VerticalAlignment="Top"/>           
         
         <!-- Episodes Listing -->
-        <ListBox x:Name="EpisodesList" Grid.Column="2" Grid.Row="1" Background="Transparent"  Visibility="Collapsed">
+        <ListBox x:Name="EpisodesList" Grid.Column="2" Grid.Row="1" Background="Transparent"  Visibility="Collapsed" VerticalAlignment="Center">
             <ListBox.Resources>
-                <Style TargetType="Button">
+                <Style TargetType="Image">
                     <Setter Property="Margin" Value="10" />
                 </Style>
                 <Style TargetType="TextBlock">
@@ -55,26 +39,28 @@
                 </Style>
             </ListBox.Resources>
             <StackPanel Orientation="Horizontal">
-                <Button Width="100" Height="50"/>
+                <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\thumbnailFiller.png" Width="100" Height="50"/>
                 <TextBlock Foreground="GreenYellow" Text="Episode 1" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Width="100" Height="50"/>
+                <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\thumbnailFiller.png" Width="100" Height="50"/>
                 <TextBlock Foreground="GreenYellow" Text="Episode 2" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Width="100" Height="50"/>
+                <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\thumbnailFiller.png" Width="100" Height="50"/>
                 <TextBlock Foreground="GreenYellow" Text="Episode 3" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
             </StackPanel>
         </ListBox>
         
+        
+        
         <!-- Preview for currently selected-->
-        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" >
-            <TextBlock Text="WALL-E" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center"/>
-            <Button x:Name="ScreenClick" Grid.Column="1" Grid.Row="1"  Width="500" Margin="10,0" Background="Transparent" Click="Screen_Click">
-                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/videoFiller.png" Stretch="Fill"/>
-            </Button>
-        </StackPanel>
+        
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding CurrentlySelected, Converter={StaticResource converter}}" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" FontSize="40" Foreground="GreenYellow" HorizontalAlignment="Center"/>    
+        <Button x:Name="ScreenClick" Grid.Column="1" Grid.Row="1"  MaxHeight="300" Width="500" Background="Transparent" Click="Screen_Click" VerticalAlignment="Center">
+                <Image Source="{Binding CurrentlySelected}" Stretch="Fill"/>
+        </Button>
+        
 
         <!-- Fastforward and Rewind -->
         <Grid Grid.Column="1" Grid.Row="1">
@@ -93,17 +79,11 @@
             <Button x:Name="PlayButton" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Click="PlayButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/playButton.png" />
             </Button>
-            <Button x:Name="Rewind" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Background="Transparent">
-                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Rewind.png"/>
-            </Button>
-            <Button x:Name="Fastforward" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="Transparent">
-                <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Fastforward.png"/>
-            </Button>
         </Grid>
 
         <!-- Seen / Not seen buttons-->
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
-            <Button x:Name="MoviesButton" Height="100"  Width="100" Background="#75BC21" BorderBrush="Transparent" Click="MoviesButton_Click">
+            <Button x:Name="MoviesButton" Height="100"  Width="100" Background="#75BC21" BorderBrush="Transparent" Click="MoviesButton_Click" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="8*"/>
@@ -125,21 +105,41 @@
             </Button>
         </StackPanel>
         
-        <!-- Thumbnails of other videos -->
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
-            <StackPanel.Resources>
-                <Style TargetType="Image">
-                    <Setter Property="Margin" Value="10" />
-                </Style>
-            </StackPanel.Resources>
-            <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
-            <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/thumbnailFiller.png" Width="200"/>
-            <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/greyedoutThumbnailFiller.png" Width="200"/>
+        <my:ThumbnailScroller x:Name="Scroller" Grid.Row="2" Grid.ColumnSpan="3"/>
+        
+        <!-- Categories Button -->
+        <StackPanel Grid.Column="2" Grid.RowSpan="2">
+            <Button x:Name="OpenCategories" Width="75" Height="75" Click="OpenCategories_Click" Background="Transparent" BorderBrush="Transparent" >
+                <Image Source="/RadBox_start;component\Assets\Images\Pictures\FoldersImage.png" Stretch="Fill"/>
+            </Button>
+            <TextBlock Foreground="GreenYellow" Text="Categories" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
         </StackPanel>
 
-        <!-- Right and left navigational arrows for thumbnails -->
-        <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototypeLeft.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Image Grid.Column="2" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototype.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+        <StackPanel x:Name="CategoriesList" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Background="RoyalBlue" Height="280" VerticalAlignment="Top" Visibility="Collapsed" MouseLeave="CategoriesList_MouseLeave">
+            <StackPanel >
+                <Button x:Name="ActionButton" Width="100" Height="50" Click="ActionButton_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Image Source="/Radbox_Start;component\Assets\Images\MoviesAndShows\actionAdventure.png"/>    
+                </Button>
+                <TextBlock Foreground="GreenYellow" Text="Action / Adventure" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel >
+                <Button x:Name="CartoonsButton" Width="100" Height="50" Click="CartoonsButton_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\cartoons.png"/>
+                </Button>
+                <TextBlock Foreground="GreenYellow" Text="Cartoons" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel >
+                <Button x:Name="SingalongButton" Width="100" Height="50" Click="SingalongButton_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\singalong.png"/>
+                </Button>
+                <TextBlock Foreground="GreenYellow" Text="Sing-Along" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel >
+                <Button x:Name="AllButton" Width="100" Height="50" Click="AllButton_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\All.png"/>
+                </Button>
+                <TextBlock Foreground="GreenYellow" Text="All" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

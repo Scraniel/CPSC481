@@ -3,9 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:cn="clr-namespace:RadBox_start.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="635" d:DesignWidth="1028"
 	Title="Fullscreen Picture">
+
+    <Page.Resources>
+        <cn:PathToNameConverter x:Key="converter"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,7 +26,7 @@
 
         <!-- Back button -->
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
-            <Button Width="75" Click="Button_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="BackButton" Width="75" Click="Button_Click" Background="Transparent" BorderBrush="Transparent">
                 <Image Grid.Column="0" Grid.Row="2" Source="/RadBox_start;component/Assets/Images/StartPage/backArrow.png" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
             <TextBlock Text="Back" FontSize="15" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
@@ -29,14 +34,18 @@
 
         <!-- Slideshow toggle -->
         <!-- Slideshow button -->
-        <Image Grid.Column="2" Grid.Row="0" Source="/RadBox_start;component/Assets/Images/Pictures/slideshow_image.png" Grid.RowSpan="2" VerticalAlignment="Top" />
-
+        <Button x:Name="SlideShowButton" Grid.Column="2" Grid.Row="0" Background="Transparent" Click="SlideShowButton_Click" BorderBrush="Transparent">
+            <Image Source="/RadBox_start;component/Assets/Images/Pictures/slideshow_image.png" Grid.RowSpan="2" VerticalAlignment="Top" />
+        </Button>
         <!-- Picture (fullscreen mode) -->
-        <Image Source="{Binding CurrentlySelected}" Grid.Row="1" Grid.Column="1"/>
-        <TextBlock Text="Pencils" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
+        <Image Source="{Binding CurrentlySelected}" Grid.Row="1" Grid.Column="1" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+        <TextBlock Text="{Binding CurrentlySelected, Converter={StaticResource converter}}" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
 
-        <Image Grid.Column="0" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototypeLeft.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-        <Image Grid.Column="2" Grid.Row="1" Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototype.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" />
-
+        <Button x:Name="LeftArrow" Grid.Column="0" Grid.Row="1" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Click="LeftArrow_Click">
+            <Image Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototypeLeft.png"/>
+        </Button>
+        <Button x:Name="RightArrow" Grid.Column="2" Grid.Row="1" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Click="RightArrow_Click">
+            <Image Source="/RadBox_start;component/Assets/Images/StartPage/greenArrowPrototype.png"/>
+        </Button>
     </Grid>
 </Page>

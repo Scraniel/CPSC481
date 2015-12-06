@@ -48,10 +48,13 @@ namespace RadBox_start.Helpers
         {
             picFullScreen.DataContext = data;
             PictureFullScreen();
+            picFullScreen.dispatcherTimer.Start();
         }
 
-        public static void MoviesAndShowsFullscreen()
+        public static void MoviesAndShowsFullscreen(int index, MoviesAndShowsData.MovieType type)
         {
+            moviesAndShowsFullscreen.data.SetCurrentlyPlaying(index, type);
+            moviesAndShowsFullscreen.Video.Source = new Uri(moviesAndShowsFullscreen.data.CurrentlyPlaying, UriKind.Relative);
             Navigate(moviesAndShowsFullscreen);
         }
     }
