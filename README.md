@@ -28,7 +28,7 @@ options. Click one of the following three buttons:
 							video, fast forward and rewind buttons appear. Clicking on these will skip through 
 							scenes, where as holding them down will slowly fast forward and rewind accordingly. 
 							Clicking anywhere else on the video screen will pause it and minimize to the 
-							previous screen. The video can then be continued by starting it the same way as 
+							previous screen. The video can then be played again by starting it the same way as 
 							before (clicking anywhere on the preview of it).
 						 - There are categories by which the movies can be sorted. Clicking the ‘Categories’ 
 						 icon in the top right will bring down a list of categories to choose from.  Selecting 
