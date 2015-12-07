@@ -34,6 +34,12 @@ namespace RadBox_start.Helpers
             Navigate(moviesAndShowsPage);
         }
 
+        public static void MoviesAndShowsPage(bool watched, TimeSpan position)
+        {
+            moviesAndShowsPage.UpdateMetaData(watched, position);
+            Navigate(moviesAndShowsPage);
+        }
+
         public static void PicturesPage()
         {
             Navigate(picturesPage);
@@ -51,10 +57,11 @@ namespace RadBox_start.Helpers
             picFullScreen.dispatcherTimer.Start();
         }
 
-        public static void MoviesAndShowsFullscreen(int index, MoviesAndShowsData.MovieType type)
+        public static void MoviesAndShowsFullscreen(int index, TimeSpan position, MoviesAndShowsData.MovieType type)
         {
             moviesAndShowsFullscreen.data.SetCurrentlyPlaying(index, type);
             moviesAndShowsFullscreen.Video.Source = new Uri(moviesAndShowsFullscreen.data.CurrentlyPlaying, UriKind.Relative);
+            moviesAndShowsFullscreen.Video.Position = position;
             Navigate(moviesAndShowsFullscreen);
         }
     }

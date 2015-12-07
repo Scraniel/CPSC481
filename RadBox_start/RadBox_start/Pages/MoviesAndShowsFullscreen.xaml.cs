@@ -29,6 +29,7 @@ namespace RadBox_start.Pages
         BitmapImage MuteIcon = new BitmapImage(new Uri(@"/RadBox_start;component\Assets\Images\MoviesAndShows\muted.png", UriKind.Relative));
         BitmapImage UnmuteIcon = new BitmapImage(new Uri(@"/RadBox_start;component\Assets\Images\MoviesAndShows\volumeControlsFiller.png", UriKind.Relative));
         double currentVolume = 50;
+        bool finished = false;
 
         public MoviesAndShowsFullscreen()
         {
@@ -39,7 +40,12 @@ namespace RadBox_start.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.MoviesAndShowsPage();
+            if (finished)
+            {
+                Video.Position = new TimeSpan(0);
+            }
+            Navigator.MoviesAndShowsPage(finished, Video.Position);
+            finished = false;   
         }
 
         private void Video_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -49,14 +55,18 @@ namespace RadBox_start.Pages
 
         private void Rewind_Click(object sender, RoutedEventArgs e)
         {
-            long newPosition = (((Video.Position.Ticks - OneSecond.Ticks) % Video.NaturalDuration.TimeSpan.Ticks) + Video.NaturalDuration.TimeSpan.Ticks) % Video.NaturalDuration.TimeSpan.Ticks;
+            long newPosition =Video.Position.Ticks - OneSecond.Ticks;
+            if (newPosition < 0)
+                newPosition = 0;
 
             Video.Position = TimeSpan.FromTicks(newPosition);
         }
 
         private void Fastforward_Click(object sender, RoutedEventArgs e)
         {
-            long newPosition = (Video.Position.Ticks + OneSecond.Ticks) % Video.NaturalDuration.TimeSpan.Ticks;
+            long newPosition = Video.Position.Ticks + OneSecond.Ticks;
+            if (newPosition > Video.NaturalDuration.TimeSpan.Ticks)
+                newPosition = Video.NaturalDuration.TimeSpan.Ticks;
 
             Video.Position = TimeSpan.FromTicks(newPosition);
         }
@@ -65,29 +75,34 @@ namespace RadBox_start.Pages
         {
             Rewind.Opacity = 1;
             Fastforward.Opacity = 1;
+            Pause.Opacity = 1;
         }
 
         private void Video_MouseLeave(object sender, MouseEventArgs e)
         {
             Rewind.Opacity = 0;
             Fastforward.Opacity = 0;
+            Pause.Opacity = 0;
         }
 
         private void PlaybackControls_MouseLeave(object sender, MouseEventArgs e)
         {
             Rewind.Opacity = 0;
             Fastforward.Opacity = 0;
+            Pause.Opacity = 0;
         }
 
         private void PlaybackControls_MouseEnter(object sender, MouseEventArgs e)
         {
             Rewind.Opacity = 1;
             Fastforward.Opacity = 1;
+            Pause.Opacity = 1;
         }
 
         private void Video_MediaEnded(object sender, RoutedEventArgs e)
         {
-            Video.Position = new TimeSpan(0);
+            finished = true;
+            Button_Click(BackButton, new RoutedEventArgs());
         }
 
         private void VolumeButton_Click(object sender, RoutedEventArgs e)
@@ -126,6 +141,11 @@ namespace RadBox_start.Pages
             var image = VolumeButton.Content as Image;
             if (image != null)
                 image.Source = UnmuteIcon;
+        }
+
+        private void Pause_Click(object sender, RoutedEventArgs e)
+        {
+            Button_Click(BackButton, new RoutedEventArgs());
         }
     }
 }

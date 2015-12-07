@@ -41,6 +41,9 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <Button x:Name="Pause" Grid.Column="1" Grid.Row="1" Width="100" Height="100" Background="Transparent" BorderBrush="Transparent" Click="Pause_Click">
+                <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\pauseicon.png"/>
+            </Button>
             <RepeatButton Delay="500" x:Name="Rewind" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Background="Transparent" Click="Rewind_Click">
                 <Image Source="/RadBox_start;component/Assets/Images/MoviesAndShows/Rewind.png"/>
             </RepeatButton>

@@ -2,6 +2,7 @@
 using RadBox_start.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,10 @@ namespace RadBox_start.Pages
     public partial class PicturesPage : Page
     {
         PicturesData data = new PicturesData();
-        
+        //FoldersWrapper folders = new FoldersWrapper();
+        public ObservableCollection<PictureFolderData> FolderData = new ObservableCollection<PictureFolderData>();
+
+
         public PicturesPage()
         {
             InitializeComponent(); 
@@ -34,13 +38,33 @@ namespace RadBox_start.Pages
             Scroller.LeftArrowClick += new RoutedEventHandler(LeftArrow_Click);
             Scroller.SelectionChanged += new SelectionChangedEventHandler(Thumbnails_SelectionChanged);
 
-            data.Add("/RadBox_start;component/Assets/Images/Pictures/1.png");
-            data.Add("/RadBox_start;component/Assets/Images/Pictures/2.png");
-            data.Add("/RadBox_start;component/Assets/Images/Pictures/3.png");
-            data.Add("/RadBox_start;component/Assets/Images/Pictures/4.png");
-            data.Add("/RadBox_start;component/Assets/Images/Pictures/5.png");
-            data.Add("/RadBox_start;component/Assets/Images/Pictures/6.png");
+            FolderData.Add(new PictureFolderData(@"/RadBox_start;component\Assets\Images\Pictures\FoldersImage.png", "All", new List<string>()));
+            FolderData.Add(new PictureFolderData(@"\RadBox_start;component\Assets\Images\Pictures\Pencils.png", "School", new List<string>()));
+            FolderData.Add(new PictureFolderData(@"/RadBox_start;component\Assets\Images\MoviesAndShows\videoFiller.png", "Landscapes", new List<string>()));
+            FolderData.Add(new PictureFolderData(@"/RadBox_start;component\Assets\Images\MoviesAndShows\thumbnailFiller.png", "Fishes", new List<string>()));
+            
+            FoldersSelector.DataContext = FolderData;
+                        
+            FolderData[1].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Blue Pencils.png");
+            FolderData[1].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Pencils.png");
+            FolderData[1].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Red Pencils.png");
+            FolderData[1].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Yellow Pencils.png");
+                        
+            FolderData[2].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Dark Day.png");
+            FolderData[2].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Daytime.png");
+            FolderData[2].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Burgandy Sky.png");
+            FolderData[2].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Purple Sun.png");
 
+            FolderData[3].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Red Fish.png");
+            FolderData[3].Images.Add(@"/RadBox_start;component\Assets\Images\Pictures\Fish.png");
+            FolderData[3].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Red Sky.png");
+            FolderData[3].Images.Add(@"\RadBox_start;component\Assets\Images\Pictures\Yellow Sky.png");
+
+            FolderData[0].Add(FolderData[1].Images);
+            FolderData[0].Add(FolderData[2].Images);
+            FolderData[0].Add(FolderData[3].Images);
+            
+            data.Add(FolderData[0].Images);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -93,7 +117,7 @@ namespace RadBox_start.Pages
             int index = Scroller.Thumbnails.SelectedIndex;
             e.Handled = true;
             if (index == -1)
-                Scroller.Thumbnails.SelectedIndex = 1;
+                return;
 
             if (index == PicturesData.BEGINNING)
                 LeftArrow_Click(Scroller.LeftArrow, new RoutedEventArgs());
@@ -102,6 +126,34 @@ namespace RadBox_start.Pages
 
 
             data.CurrentlySelected = data.Images[Scroller.Thumbnails.SelectedIndex];
+        }
+
+        private void FoldersSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = FoldersSelector.SelectedIndex;
+            e.Handled = true;
+            if (index == -1)
+            {
+                FoldersSelector.SelectedIndex = 0;
+                index = 0;
+            }
+            else
+            {
+                data.Clear();
+                data.Add(FolderData[index].Images);
+                Scroller.Thumbnails.SelectedIndex = 1;
+            }
+            if (index != 0)
+            {
+                PictureFolderData selected = FolderData[index];
+                FolderData.RemoveAt(index);
+                FolderData.Insert(0, selected);
+                FoldersSelector.SelectedIndex = 0;
+            }
+
+            if (FoldersSelector.Items.Count > 0)
+                FoldersSelector.ScrollIntoView(FoldersSelector.Items[0]);
+            
         }
 
     }

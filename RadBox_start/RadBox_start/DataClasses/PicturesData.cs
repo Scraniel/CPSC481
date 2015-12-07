@@ -71,6 +71,30 @@ namespace RadBox_start.DataClasses
                 Add(s);
         }
 
+        public void Add(List<MoviesMetadata> newPhotosFromMetaData)
+        {
+            foreach(MoviesMetadata m in newPhotosFromMetaData)
+                Add(m.Path);
+        }
+
+        public void Update(string oldPath, string newPath)
+        {
+            int index = _allImages.IndexOf(oldPath);
+            _allImages.RemoveAt(index);
+            _allImages.Insert(index, newPath);
+
+            index = Images.IndexOf(oldPath);
+            if(index >= 0)
+            {
+                Images.RemoveAt(index);
+                Images.Insert(index, newPath);
+            }
+            if (CurrentlySelected == oldPath)
+                CurrentlySelected = newPath;
+
+
+        }
+
         public void Clear()
         {
             _currentStart = 0;

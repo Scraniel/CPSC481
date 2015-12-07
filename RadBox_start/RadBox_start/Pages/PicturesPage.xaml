@@ -31,37 +31,26 @@
 
         <!-- Preview for currently selected -->
      
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding CurrentlySelected, Converter={StaticResource converter}}" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
-            <Button Grid.Row="1" Grid.Column="1" Width="351" Click="photoPlay">
-                <Image Source="{Binding CurrentlySelected}" Stretch="Fill"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Text="{Binding CurrentlySelected, Converter={StaticResource converter}}" FontSize="50" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
+            <Button Grid.Row="1" Grid.Column="1" MaxWidth="400" Click="photoPlay" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="{Binding CurrentlySelected}" Stretch="Uniform"/>
             </Button>
        
         <!-- Albums -->
 
-        <StackPanel x:Name="FoldersSelector" Height="352" VerticalAlignment="Center" Grid.Row="1"  Grid.Column="0" Background="Transparent" Margin="0,15,0,1" >
-            <ScrollViewer HorizontalAlignment="Center" Height="330" Width="150">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="Image">
-                            <Setter Property="Margin" Value="10" />
-                        </Style>
-                    </StackPanel.Resources>
+        <ListView x:Name="FoldersSelector" Height="300" ItemsSource="{Binding}" 
+                  VerticalAlignment="Center" Grid.Row="1"  Grid.Column="0" 
+                  Background="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                  SelectionChanged="FoldersSelector_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
                     <StackPanel>
-                        <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\thumbnailFiller.png"/>
-                        <TextBlock Text="Fishes" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
+                        <Image Source="{Binding Thumbnail}" Width="100"/>
+                        <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb" Foreground="GreenYellow"/>
                     </StackPanel>
-                    <StackPanel>
-                        <Image Source="/RadBox_start;component\Assets\Images\Pictures\photos_filler.png"/>
-                        <TextBlock Text="School" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <Image Source="/RadBox_start;component\Assets\Images\MoviesAndShows\videoFiller.png"/>
-                        <TextBlock Text="Landscapes" Foreground="GreenYellow" HorizontalAlignment="Center" FontFamily="/RadBox_start;component/Assets/Fonts/3Dumb/#2Dumb"/>
-                    </StackPanel>
-                </StackPanel>
-
-            </ScrollViewer>
-        </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <!-- Thumbnails of other videos -->
         <my:ThumbnailScroller x:Name="Scroller" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>

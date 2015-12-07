@@ -24,9 +24,9 @@ namespace RadBox_start.Pages
     {
         PicturesData data = new PicturesData();
         MoviesAndShowsData.MovieType currentType = MoviesAndShowsData.MovieType.All;
-        List<string> cartoonPics = new List<string>();
-        List<string> actionPics = new List<string>();
-        List<string> singalongPics = new List<string>();
+        List<MoviesMetadata> cartoonPics = new List<MoviesMetadata>();
+        List<MoviesMetadata> actionPics = new List<MoviesMetadata>();
+        List<MoviesMetadata> singalongPics = new List<MoviesMetadata>();
 
         public MoviesAndShowsPage()
         {
@@ -37,17 +37,17 @@ namespace RadBox_start.Pages
             Scroller.LeftArrowClick += new RoutedEventHandler(LeftArrow_Click);
             Scroller.SelectionChanged += new SelectionChangedEventHandler(Thumbnails_SelectionChanged);
 
-            actionPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Lego.png");
-            actionPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Honey, I Shrunk The Kids.png");
-            actionPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\The Goonies.png");
+            actionPics.Add(new MoviesMetadata(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Lego.png"));
+            actionPics.Add(new MoviesMetadata(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Honey, I Shrunk The Kids.png"));
+            actionPics.Add(new MoviesMetadata(@"\RadBox_start;component\Assets\Images\MoviesAndShows\The Goonies.png"));
 
-            cartoonPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\The Amazing Bunny.PNG");
-            cartoonPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Spongebob.png");
-            cartoonPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Spirited Away.png");
+            cartoonPics.Add(new MoviesMetadata(@"\RadBox_start;component\Assets\Images\MoviesAndShows\The Amazing Bunny.PNG"));
+            cartoonPics.Add(new MoviesMetadata(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Spongebob.png"));
+            cartoonPics.Add(new MoviesMetadata(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Spirited Away.png"));
 
-            singalongPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Let It Go.png");
-            singalongPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\ABC Song.png");
-            singalongPics.Add(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Fun Song.png");
+            singalongPics.Add(new MoviesMetadata(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Let It Go.png"));
+            singalongPics.Add(new MoviesMetadata(@"\RadBox_start;component\Assets\Images\MoviesAndShows\ABC Song.png"));
+            singalongPics.Add(new MoviesMetadata(@"\RadBox_start;component\Assets\Images\MoviesAndShows\Fun Song.png"));
 
             data.Add(actionPics);
             data.Add(cartoonPics);
@@ -69,13 +69,12 @@ namespace RadBox_start.Pages
 
         private void Screen_Click(object sender, RoutedEventArgs e)
         {
-
-            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % data._allImages.Count, currentType);
+            Navigator.MoviesAndShowsFullscreen(GetTrueCurrentIndex(), GetCurrentlyPlaying().Position, currentType);
         }
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.MoviesAndShowsFullscreen((data._currentStart + 1) % data._allImages.Count, currentType);
+            Navigator.MoviesAndShowsFullscreen(GetTrueCurrentIndex(), GetCurrentlyPlaying().Position, currentType);
         }
 
         private void OpenCategories_Click(object sender, RoutedEventArgs e)
@@ -181,6 +180,62 @@ namespace RadBox_start.Pages
                 Scroller.Thumbnails.SelectedIndex = 1;
             }
             CategoriesList.Visibility = Visibility.Collapsed;
+        }
+
+        public int GetTrueCurrentIndex()
+        {
+            return (data._currentStart + 1) % data._allImages.Count;
+        }
+
+        public void UpdateMetaData(bool watched, TimeSpan position)
+        {
+            MoviesMetadata CurrentlyPlaying = GetCurrentlyPlaying();
+            if (CurrentlyPlaying != null)
+            {
+                CurrentlyPlaying.Position = position;
+                if (watched && !CurrentlyPlaying.Seen)
+                {
+                    CurrentlyPlaying.Seen = watched;
+                    List<string> path = new List<string>(CurrentlyPlaying.Path.Split('\\'));
+                    int insertIndex = path.IndexOf("MoviesAndShows");
+                    if (insertIndex >= 0)
+                    {
+                        path.Insert(insertIndex + 1, "GreyScale");
+                        string newPath = String.Join("\\", path);
+                        data.Update(CurrentlyPlaying.Path, newPath);
+                        CurrentlyPlaying.Path = newPath;
+                    }
+                }
+            }
+        }
+
+        public MoviesMetadata GetCurrentlyPlaying()
+        {
+            int index = GetTrueCurrentIndex();
+            MoviesMetadata CurrentlyPlaying = null;
+
+            switch (currentType)
+            {
+                case MoviesAndShowsData.MovieType.All:
+                    if (index < actionPics.Count)
+                        CurrentlyPlaying = actionPics[index];
+                    else if (index - actionPics.Count < cartoonPics.Count)
+                        CurrentlyPlaying = cartoonPics[index - actionPics.Count];
+                    else
+                        CurrentlyPlaying = singalongPics[index - actionPics.Count - cartoonPics.Count];
+                    break;
+                case MoviesAndShowsData.MovieType.Action:
+                    CurrentlyPlaying = actionPics[index];
+                    break;
+                case MoviesAndShowsData.MovieType.Cartoons:
+                    CurrentlyPlaying = cartoonPics[index];
+                    break;
+                case MoviesAndShowsData.MovieType.Singalong:
+                    CurrentlyPlaying = singalongPics[index];
+                    break;
+            }
+
+            return CurrentlyPlaying;
         }
     }
 }

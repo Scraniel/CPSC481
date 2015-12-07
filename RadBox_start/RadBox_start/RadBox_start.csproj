@@ -54,7 +54,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\PathToNameConverter.cs" />
+    <Compile Include="DataClasses\FoldersWrapper.cs" />
     <Compile Include="DataClasses\MoviesAndShowsData.cs" />
+    <Compile Include="DataClasses\MoviesMetadata.cs" />
+    <Compile Include="DataClasses\PictureFolderData.cs" />
     <Compile Include="DataClasses\PicturesData.cs" />
     <Compile Include="Helpers\Utility.cs" />
     <Compile Include="UserControls\HomeButton.xaml.cs">
@@ -178,7 +181,7 @@
     <Resource Include="Assets\Images\StartPage\moviesAndShowsLabel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Pictures\photos_filler.png" />
+    <Resource Include="Assets\Images\Pictures\Pencils.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\StartPage\homeButton.png" />
@@ -240,6 +243,28 @@
     <Resource Include="Assets\Images\MoviesAndShows\cartoons.png" />
     <Resource Include="Assets\Images\MoviesAndShows\All.png" />
     <Resource Include="Assets\Images\MoviesAndShows\muted.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\GreyScale\ABC Song.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\GreyScale\Fun Song.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\GreyScale\Honey, I Shrunk The Kids.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\GreyScale\Lego.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\GreyScale\Let It Go.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\GreyScale\Spirited Away.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\GreyScale\Spongebob.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\GreyScale\The Amazing Bunny.PNG" />
+    <Resource Include="Assets\Images\MoviesAndShows\GreyScale\The Goonies.PNG" />
+    <Resource Include="Assets\Images\Pictures\Blue Pencils.png" />
+    <Resource Include="Assets\Images\Pictures\Dark Day.png" />
+    <Resource Include="Assets\Images\Pictures\Green Sea.png" />
+    <Resource Include="Assets\Images\Pictures\Burgandy Sky.png" />
+    <Resource Include="Assets\Images\Pictures\Purple Sun.png" />
+    <Resource Include="Assets\Images\Pictures\Red Fish.png" />
+    <Resource Include="Assets\Images\Pictures\Red Pencils.png" />
+    <Resource Include="Assets\Images\Pictures\Red Sky.png" />
+    <Resource Include="Assets\Images\Pictures\Daytime.png" />
+    <Resource Include="Assets\Images\Pictures\Yellow Pencils.png" />
+    <Resource Include="Assets\Images\Pictures\Yellow Sky.png" />
+    <Resource Include="Assets\Images\Pictures\Fish.png" />
+    <Resource Include="Assets\Images\MoviesAndShows\pauseicon.png" />
     <Content Include="Assets\Videos\dumbestSong.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
