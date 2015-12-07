@@ -7,7 +7,7 @@ Authors: Daniel Lewis,
          Zach Scott
 
         
-This system provides children with an easy-to-use and intuitive interface on which children can seamlessly
+This system provides children with an easy-to-use and intuitive interface on which they can seamlessly
 watch movies or TV shows and/or look at pictures.
 
 To run the application, either build / run from Visual Studio or run the included 'RadBox_start.exe'. If you 
